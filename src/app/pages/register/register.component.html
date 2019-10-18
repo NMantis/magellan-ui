@@ -1,1 +1,38 @@
-<p>register works!</p>
+<div class="login">
+    <div class="login-wrapper">
+        <div class="login-form">
+            <div class="logo">
+                <img src="src/favicon.ico">
+            </div>
+            <span class="title">User Registration</span>
+            <form>
+                <mat-form-field appearance="outline">
+                    <input matInput type="email" placeholder="Email">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input matInput type="password" placeholder="Password">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="First Name">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Last Name">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="dp" disabled>
+                    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                    <mat-datepicker #dp disabled="false"></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-select placeholder="Gender">
+                        <mat-option [value]="'Female'">Female</mat-option>
+                        <mat-option [value]="'Male'">Male</mat-option>
+                        <mat-option [value]="'Other'">Other</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button class="submit" mat-raised-button>Register</button>
+            </form>
+        </div>
+    </div>
+</div>

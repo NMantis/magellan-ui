@@ -6,15 +6,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/auth-interceptor';
-import { RegisterComponent } from './pages/register/register.component';
 import { LoginModule } from './pages/login/login.module';
+import { RegisterModule } from './pages/register/register.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RegisterComponent
+    AppComponent
   ],
   imports: [
+    RegisterModule,
     LoginModule,
     HttpClientModule,
     BrowserModule,
