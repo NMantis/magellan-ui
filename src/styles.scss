@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 html, body { height: 100%;color: rgba(0,0,0,.87); }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    background:linear-gradient(0deg, rgba(0, 151, 255, 0.3), rgba(28, 27, 27, 0.89)), url("src/assets/img/main.jpg");
+    background-size:cover;}
 .success{ color: #4F8A10;background-color: #DFF2BF; }
 .warning{ color: rgb(209, 53, 61);background-color: rgb(223, 145, 145); }
