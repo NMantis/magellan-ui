@@ -6,6 +6,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RegisterComponent } from './register.component';
 import { CommonModule } from '@angular/common';
 import { MatNativeDateModule } from '@angular/material/core';
+import { RouterModule,Routes } from '@angular/router';
+
+const routes: Routes =[{
+  path: '', component: RegisterComponent
+}]
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -16,7 +21,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    RouterModule.forChild(routes)
   ],
     exports: [RegisterComponent]
 })

@@ -7,14 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/auth-interceptor';
 import { LoginModule } from './pages/login/login.module';
-import { RegisterModule } from './pages/register/register.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    RegisterModule,
+    MatSnackBarModule,
     LoginModule,
     HttpClientModule,
     BrowserModule,
