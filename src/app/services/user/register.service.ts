@@ -27,7 +27,7 @@ export class RegisterService {
       .pipe(
         retry(1),
         catchError((error): any => {
-          this.showError(error)
+          if(error.error) this.showError(error.error)
         })
       )
   }

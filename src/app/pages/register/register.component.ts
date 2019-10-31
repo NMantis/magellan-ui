@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/services/user/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
   maxDate = new Date(2017, 0, 1);
   minDate = new Date(1900, 0, 1);
-  constructor(private fb: FormBuilder,public registerService: RegisterService) { }
+  constructor(private fb: FormBuilder,public registerService: RegisterService, public router: Router) { }
 
   ngOnInit() {
     this.userForm = this.fb.group({
@@ -40,7 +41,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    const user = this.userForm.getRawValue()
-    this.registerService.register(user).subscribe()
+    let user = this.userForm.getRawValue()
+    user['role']='user';
+    this.registerService.register(user).subscribe(()=> this.router.navigateByUrl('/login'))
   }
 }
