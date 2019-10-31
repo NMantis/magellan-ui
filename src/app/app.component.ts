@@ -20,12 +20,14 @@ export class AppComponent implements OnInit{
         //token is expired if it returns True
         this.authService.setLoggedIn = false
         localStorage.removeItem('jwt_token')
+        this.router.navigateByUrl('/login')
       } else {
         //token is not expired if it returns false
         this.authService.setLoggedIn = true
       }
     } else {
       this.authService.setLoggedIn = false
+      this.router.navigateByUrl('/login')
     }
   }
 }
