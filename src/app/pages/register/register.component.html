@@ -6,7 +6,7 @@
                 <img src="../../assets/magellan-logos/magellan-logos_black.png">
             </div>
             <span class="title">User Registration</span>
-            <form [formGroup]="userForm">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
                 <mat-form-field appearance="outline">
                     <input matInput type="email" placeholder="Email" formControlName="email">
                     <mat-error *ngIf="userForm.controls['email'].hasError('required')">Email is <strong>required</strong>.</mat-error>
@@ -26,16 +26,18 @@
                 <mat-form-field appearance="outline">
                     <input matInput placeholder="First Name" formControlName="firstName">
                     <mat-error *ngIf="userForm.controls['firstName'].hasError('required')">First Name is <strong>required</strong>.</mat-error>
+                    <mat-error *ngIf="userForm.controls['firstName'].hasError('pattern')">Invalid Pattern.</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <input matInput placeholder="Last Name" formControlName="lastName">
                     <mat-error *ngIf="userForm.controls['lastName'].hasError('required')">Last Name is <strong>required</strong>.</mat-error>
+                    <mat-error *ngIf="userForm.controls['lastName'].hasError('pattern')">Invalid Pattern.</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Date of Birth</mat-label>
-                    <input matInput [matDatepicker]="dp" disabled>
+                    <input matInput [matDatepicker]="dp" [min]="startDate" [max]="maxDate" formControlName="dob">
                     <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-                    <mat-datepicker #dp disabled="false"></mat-datepicker>
+                    <mat-datepicker #dp disabled="false" [startAt]="startDate"></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-select placeholder="Gender" formControlName="gender">
@@ -44,7 +46,7 @@
                         <mat-option [value]="'Other'">Other</mat-option>
                     </mat-select>
                 </mat-form-field>
-                <button class="submit" mat-raised-button>Register</button>
+                <button class="submit" mat-raised-button [disabled]="userForm.invalid">Register</button>
             </form>
         </div>
     </div>
