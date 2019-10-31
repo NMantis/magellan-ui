@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private fb: FormBuilder,public authService: AuthService,public router: Router) { }
+  loginForm: FormGroup;
   ngOnInit() {
+    this.loginForm = this.fb.group({
+      email: ['',[Validators.required,Validators.email]],
+      password: ['', Validators.required]
+    });
   }
 
+  login() {
+    let emaill = this.loginForm.get('email').value
+    let passwordd = this.loginForm.get('password').value
+    this.authService.login(emaill, passwordd)
+      .subscribe((resp: any) => {
+        if (resp.accessToken) {
+          this.router.navigateByUrl('')
+          localStorage.setItem('jwt_token', resp.accessToken);
+          this.authService.loginStatusUpdate(); //updates the login status in AuthService              
+        }
+      })
+  }
 }

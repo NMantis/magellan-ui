@@ -43,7 +43,6 @@ export class AuthService {
     });
   }
   public login(usernameOrEmail: string, password: string) {
-    //console.log('i login service with : '+usernameOrEmail+' and '+ password)
     return this.http.post<any>(this.baseUrl + '/api/auth/signin', { usernameOrEmail, password }, httpOptions)
       .pipe(
         retry(1),

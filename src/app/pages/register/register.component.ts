@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   userForm: FormGroup;
   startDate = new Date(1990, 0, 1);
-  maxDate = new Date(2017, 0, 1);
+  maxDate = new Date(2011, 0, 1);
   minDate = new Date(1900, 0, 1);
-  constructor(private fb: FormBuilder,public registerService: RegisterService, public router: Router) { }
+  constructor(private fb: FormBuilder,public registerService: RegisterService,public router: Router) { }
 
   ngOnInit() {
     this.userForm = this.fb.group({
@@ -43,6 +43,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     let user = this.userForm.getRawValue()
     user['role']='user';
-    this.registerService.register(user).subscribe(()=> this.router.navigateByUrl('/login'))
+    this.registerService.register(user)
+    .subscribe(()=> this.router.navigateByUrl('/login'))
   }
 }
