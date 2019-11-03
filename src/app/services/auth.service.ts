@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { throwError } from 'rxjs/internal/observable/throwError';
-import { retry, catchError } from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
@@ -31,27 +28,11 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private router: Router,
-    private _snackBar: MatSnackBar
+    private router: Router
   ) { }
 
-  showError() {
-    this._snackBar.open('Wrong Username or Password.', 'Ok', {
-      duration: 3000,
-      verticalPosition: 'top',
-      panelClass: ['warning']
-    });
-  }
   public login(usernameOrEmail: string, password: string) {
     return this.http.post<any>(this.baseUrl + '/api/auth/signin', { usernameOrEmail, password }, httpOptions)
-      .pipe(
-        retry(1),
-        catchError((error): any => {
-          this.showError()
-          return throwError(
-            'Something bad happened; please try again later.');
-        })
-      );
   }
 
   public loginStatusUpdate() {
