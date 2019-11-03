@@ -38,7 +38,7 @@ export class AuthService {
   public loginStatusUpdate() {
     //is called if login is successfull and updates the isLoggedIN boolean
     try {
-      if (localStorage.getItem('jwt_token')) {
+      if (localStorage.getItem('access_jwt_token')) {
         AuthService.isLoggedIn = true;
       }
     } catch (error) {
@@ -47,8 +47,8 @@ export class AuthService {
   }
 
   public logout() {
-    if (localStorage.getItem('jwt_token')) {
-      localStorage.removeItem('jwt_token')
+    if (localStorage.getItem('access_jwt_token')) {
+      localStorage.removeItem('access_jwt_token')
       AuthService.isLoggedIn = false;
       this.router.navigateByUrl('/login')
     } else {

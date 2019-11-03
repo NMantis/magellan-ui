@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './services/auth-services/auth.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
@@ -15,11 +15,11 @@ export class AppComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('jwt_token')) {
-      if (this.helper.isTokenExpired(localStorage.getItem('jwt_token'))) {
+    if (localStorage.getItem('access_jwt_token')) {
+      if (this.helper.isTokenExpired(localStorage.getItem('access_jwt_token'))) {
         //token is expired if it returns True
         this.authService.setLoggedIn = false
-        localStorage.removeItem('jwt_token')
+        localStorage.removeItem('access_jwt_token')
         this.router.navigateByUrl('/login')
       } else {
         //token is not expired if it returns false

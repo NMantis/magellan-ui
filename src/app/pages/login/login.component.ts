@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth-services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       .subscribe((resp: any) => {
         if (resp.accessToken) {
           this.router.navigate([''])
-          localStorage.setItem('jwt_token', resp.accessToken);
+          localStorage.setItem('access_jwt_token', resp.accessToken);
           this.authService.loginStatusUpdate(); //updates the login status in AuthService              
         }
       })
