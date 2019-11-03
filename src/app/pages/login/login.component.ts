@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(emaill, passwordd)
       .subscribe((resp: any) => {
         if (resp.accessToken) {
-          this.router.navigateByUrl('')
+          this.router.navigate([''])
           localStorage.setItem('jwt_token', resp.accessToken);
           this.authService.loginStatusUpdate(); //updates the login status in AuthService              
         }
