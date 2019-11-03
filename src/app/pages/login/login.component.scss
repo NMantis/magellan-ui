@@ -100,3 +100,20 @@ mat-checkbox{
     margin: 16px auto;
     display: block;
 }
+
+.spacing{
+    margin-top:100px
+}
+
+@media screen and (max-width: 600px) {
+    .login-wrapper{
+        padding: 16px;
+    }
+    .login-form{
+        width:90%;
+        margin-left:5%;
+    }
+    .spacing{
+        margin-top:20px;
+    }
+}

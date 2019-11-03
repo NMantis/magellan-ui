@@ -8,7 +8,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDividerModule} from '@angular/material/divider'; 
-
 const Mat_modules = [
     MatDividerModule,
     MatButtonModule,
