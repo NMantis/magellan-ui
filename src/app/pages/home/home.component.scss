@@ -1,5 +1,5 @@
 .container {
-  top:30%;
+  top:35%;
   display:flex;
   position: absolute;
   justify-content: space-around;
@@ -97,11 +97,33 @@ h4{
   animation-name: fadeInUp;
 }
 
+.header{
+  animation: 1.5s ease-out 0s 1 fadeInUp;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  top:10%;
+  left:40%;
+  text-align:center;
+  h2{ font-weight: 400}
+}
+
 @media screen and (max-width: 720px) {
   .container {
     margin-top:4%;
     flex-direction: column;
     width:100%;
     position:relative;
+  }
+  .header{
+    position:relative;
+    left:0;
+    animation: 0.4s ease-out 0s 1 fadeInUp;
+  }
+
+  .wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
   }
 }
