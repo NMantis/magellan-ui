@@ -1,5 +1,5 @@
 .container {
-  top:40%;
+  top:30%;
   display:flex;
   position: absolute;
   justify-content: space-around;
@@ -17,8 +17,11 @@
   border: 1px solid #938d3a;
   outline: none;
   transition: 1s ease-in-out;
+  animation: 0.5s ease-out 0s 1 fadeInUp;
   padding: 0;
   position: relative;
+  visibility: hidden;
+  animation-fill-mode: forwards;
 }
 
 .border {
@@ -29,6 +32,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  outline: 0;
 }
 
 .btn:hover {
@@ -42,8 +46,62 @@
 
 .btn span {
   color: white;
+  outline: 0;
   mat-icon{
     width: 70%;
     height: 80%;
+    outline: 0;
+    svg{ outline: 0;}
+  }
+}
+
+.second{
+  animation-delay: 0.3s;
+}
+.third{
+  animation-delay: 0.6s;
+}
+.fourth{
+  animation-delay: 0.9s;
+}
+
+.btn:active,.btn:focus{
+  outline:none
+}
+
+.btn-wrapper{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+@keyframes fadeInUp {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+h4{
+  color: #fff;
+  font-size: 20px;
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    margin-top:4%;
+    flex-direction: column;
+    width:100%;
+    position:relative;
   }
 }

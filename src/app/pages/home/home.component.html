@@ -1,71 +1,91 @@
 <div class="container">
-  <button class="btn">
-    <svg width="150px" height="150px" class="border">
-      <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#9f7928" />
-          <stop offset="50%" stop-color="#Df7928" />
-          <stop offset="100%" stop-color="#EDB931" />
-        </linearGradient>
-      </defs>
-      <circle cx="75" cy="75" r="75" stroke-width="2" stroke="url(#gradient)"></circle>
-    </svg>
-    <span>
-      <mat-icon svgIcon="quickSearch"></mat-icon>
-    </span>
-  </button>
+  <div class="btn-wrapper">
+    <button class="btn">
+      <svg width="150px" height="150px" class="border">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#9f7928" />
+            <stop offset="50%" stop-color="#Df7928" />
+            <stop offset="100%" stop-color="#EDB931" />
+          </linearGradient>
+        </defs>
+        <circle cx="75" cy="75" r="75" stroke-width="2" stroke="url(#gradient)"></circle>
+      </svg>
+      <span>
+        <mat-icon svgIcon="quickSearch"></mat-icon>
+      </span>
+    </button>
+    <div *ngIf="!show">     <h4></h4></div>
 
-  <button class="btn">
-    <svg width="150px" height="150px" class="border">
-      <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#9f7928" />
-          <stop offset="50%" stop-color="#Df7928" />
-          <stop offset="100%" stop-color="#EDB931" />
-        </linearGradient>
-      </defs>
-      <circle cx="75" cy="75" r="75" stroke-width="2" stroke="url(#gradient)"></circle>
-    </svg>
-    <span>
-      <mat-icon svgIcon="quickSearch"></mat-icon>
-    </span>
-  </button>
+    <div *ngIf="show"> 
+        <h4 [@simpleFadeIn]="'in'" >Quick Search</h4>
+    </div>
+  </div>
 
-  <button class="btn">
-    <svg width="150px" height="150px" class="border">
-      <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#9f7928" />
-          <stop offset="50%" stop-color="#Df7928" />
-          <stop offset="100%" stop-color="#EDB931" />
-        </linearGradient>
-      </defs>
-      <circle cx="75" cy="75" r="75" stroke-width="2" stroke="url(#gradient)"></circle>
-    </svg>
-    <span>
-      <mat-icon svgIcon="quickSearch"></mat-icon>
-    </span>
-  </button>
+  <div class="btn-wrapper">
+    <button class="btn second">
+      <svg width="150px" height="150px" class="border">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#9f7928" />
+            <stop offset="50%" stop-color="#Df7928" />
+            <stop offset="100%" stop-color="#EDB931" />
+          </linearGradient>
+        </defs>
+        <circle cx="75" cy="75" r="75" stroke-width="2" stroke="url(#gradient)"></circle>
+      </svg>
+      <span>
+        <mat-icon svgIcon="quickSearch"></mat-icon>
+      </span>
+    </button>
+    <div *ngIf="show"> 
+        <h4 [@simpleFadeIn]="'in'" >Quick Search</h4>
+    </div>
+  </div>
 
-  <button class="btn">
-    <svg width="150px" height="150px" class="border">
-      <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#9f7928" />
-          <stop offset="50%" stop-color="#Df7928" />
-          <stop offset="100%" stop-color="#EDB931" />
-        </linearGradient>
-      </defs>
-      <circle cx="75" cy="75" r="75" stroke-width="2" stroke="url(#gradient)"></circle>
-    </svg>
-    <span>
-      <mat-icon svgIcon="quickSearch"></mat-icon>
-    </span>
-  </button>
+  <div class="btn-wrapper">
+    <button class="btn third">
+      <svg width="150px" height="150px" class="border">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#9f7928" />
+            <stop offset="50%" stop-color="#Df7928" />
+            <stop offset="100%" stop-color="#EDB931" />
+          </linearGradient>
+        </defs>
+        <circle cx="75" cy="75" r="75" stroke-width="2" stroke="url(#gradient)"></circle>
+      </svg>
+      <span>
+        <mat-icon svgIcon="quickSearch"></mat-icon>
+      </span>
+    </button>
+    <div *ngIf="show"> 
+        <h4 [@simpleFadeIn]="'in'" >Quick Search</h4>
+    </div>
+  </div>
 
+  <div class="btn-wrapper">
+    <button class="btn fourth">
+      <svg width="150px" height="150px" class="border">
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#9f7928" />
+            <stop offset="50%" stop-color="#Df7928" />
+            <stop offset="100%" stop-color="#EDB931" />
+          </linearGradient>
+        </defs>
+        <circle cx="75" cy="75" r="75" stroke-width="2" stroke="url(#gradient)"></circle>
+      </svg>
+      <span>
+        <mat-icon svgIcon="quickSearch"></mat-icon>
+      </span>
+    </button>
+    <div *ngIf="show"> 
+        <h4 [@simpleFadeIn]="'in'" >Quick Search</h4>
+    </div>
+
+  </div>
 </div>
-
-
 
 <!--  Author: Freepik, Site: https://www.flaticon.com
 
