@@ -18,6 +18,16 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [AuthguardService]
   },
+  {
+    path: 'recommendations',
+    loadChildren: () => import('./pages/recommendations/recommendations.module').then(m => m.RecommendationsModule),
+    canActivate: [AuthguardService]
+  },
+  {
+    path: 'advanced-search',
+    loadChildren: () => import('./pages/advanced-search/advanced-search.module').then(m => m.AdvancedSearchModule),
+    canActivate: [AuthguardService]
+  },
 ];
 
 @NgModule({
