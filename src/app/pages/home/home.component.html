@@ -24,9 +24,8 @@
         <h4 [@simpleFadeIn]="'in'">Quick Search</h4>
       </div>
     </div>
-
     <div class="btn-wrapper">
-      <button class="btn second">
+      <button class="btn second" routerLink="/advanced-search">
         <svg width="150px" height="150px" class="border">
           <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -38,11 +37,11 @@
           <circle cx="75" cy="75" r="75" stroke-width="2" stroke="url(#gradient)"></circle>
         </svg>
         <span>
-          <mat-icon svgIcon="quickSearch"></mat-icon>
+          <mat-icon svgIcon="search"></mat-icon>
         </span>
       </button>
       <div *ngIf="show">
-        <h4 [@simpleFadeIn]="'in'">Quick Search</h4>
+        <h4 [@simpleFadeIn]="'in'">Advanced Search</h4>
       </div>
     </div>
 

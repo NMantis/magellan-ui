@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { simpleFadeIn } from 'src/app/animations';
 @Component({
   selector: 'app-home',
@@ -13,16 +12,16 @@ export class HomeComponent implements OnInit {
   show: boolean;
   constructor(
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer,
-    private router: Router) { 
+    private domSanitizer: DomSanitizer) { 
       this.matIconRegistry.addSvgIcon(
         `quickSearch`,
         this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/lighting.svg`)
       );
+      this.matIconRegistry.addSvgIcon(
+        `search`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/search.svg`)
+      );
     }
 
-  ngOnInit() {
-    setTimeout(()=> this.show = true, 1400)
-  }
-
+  ngOnInit() { setTimeout(()=> this.show = true, 1400) }
 }

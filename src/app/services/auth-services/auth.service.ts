@@ -9,10 +9,8 @@ const httpOptions = {
     'Access-Control-Allow-Origin': '*'
   })
 };
-
 @Injectable({
   providedIn: 'root'
-
 })
 export class AuthService {
   private baseUrl = environment.apiUrl
@@ -37,13 +35,8 @@ export class AuthService {
 
   public loginStatusUpdate() {
     //is called if login is successfull and updates the isLoggedIN boolean
-    try {
-      if (localStorage.getItem('access_jwt_token')) {
+      if (localStorage.getItem('access_jwt_token')) 
         AuthService.isLoggedIn = true;
-      }
-    } catch (error) {
-      console.log(error)
-    }
   }
 
   public logout() {

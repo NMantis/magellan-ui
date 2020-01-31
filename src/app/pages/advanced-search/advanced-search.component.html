@@ -1,1 +1,36 @@
-<p>advanced-search works!</p>
+<div class="header">
+    <button mat-icon-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+</div>
+<div class="container">
+    <div class="flex-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Rating</mat-label>
+            <mat-select >
+                <mat-option>1+</mat-option>
+                <mat-option>2+</mat-option>
+                <mat-option>3+</mat-option>
+                <mat-option>4+</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select >
+                <mat-option>Food</mat-option>
+                <mat-option>Drink</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Price Range</mat-label>
+            <mat-select >
+                <mat-option>Cheap</mat-option>
+                <mat-option>Average</mat-option>
+                <mat-option>High</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+</div>

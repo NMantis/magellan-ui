@@ -1,0 +1,23 @@
+.header{
+    position:sticky;
+    top:0;
+    width: 90%;
+    background:transparent;
+    padding:20px;
+    button{
+        color:#fff;
+        margin-left:15%;
+    }
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    width:70vw;
+    margin-left:15%;
+}
+
+.flex-form{
+    display:flex;
+    flex-wrap:wrap;
+}
