@@ -12,12 +12,24 @@
 
 .container{
     display:flex;
-    flex-direction:column;
-    width:70vw;
+    flex-wrap:wrap;
+    width:70%;
     margin-left:15%;
+    justify-content: space-around;
 }
 
 .flex-form{
     display:flex;
-    flex-wrap:wrap;
+    flex-direction:column;
+    min-width:40%;
+}
+
+#map {
+    height: 350px;
+    min-width:50%;
+    width: 700px;
+   }
+
+   .mat-input-wrapper {
+    background: gray;
 }

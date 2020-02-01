@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~8.2.10",
     "@angular/router": "~8.2.10",
     "@auth0/angular-jwt": "^3.0.0",
+    "@types/googlemaps": "^3.39.2",
     "angular2-template-loader": "^0.6.2",
     "core-js": "^2.5.4",
     "css-loader": "^3.2.0",
@@ -37,13 +38,13 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.9",
+    "@angular-devkit/build-angular": "^0.803.24",
     "@angular/cli": "~8.3.9",
     "@angular/compiler-cli": "~8.2.10",
     "@angular/language-service": "~8.2.10",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
