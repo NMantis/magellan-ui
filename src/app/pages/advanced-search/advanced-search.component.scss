@@ -16,12 +16,18 @@
     width:70%;
     margin-left:15%;
     justify-content: space-around;
+    background: white;
+    padding:20px;
+    border-radius:8px;
+    max-height: calc( 100vh - 90px);
+    overflow:auto;
 }
 
 .flex-form{
     display:flex;
     flex-direction:column;
     min-width:40%;
+    margin-bottom: 20px;
 }
 
 #map {

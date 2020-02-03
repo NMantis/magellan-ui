@@ -20,7 +20,6 @@ export class AdvancedSearchComponent implements OnInit,AfterViewInit {
   mapOptions: google.maps.MapOptions = {
     center: this.coordinates,
     zoom: 8,
-    clickableIcons: false,
     streetViewControl: false,
     zoomControl: false,
     fullscreenControl: false,
@@ -43,9 +42,18 @@ export class AdvancedSearchComponent implements OnInit,AfterViewInit {
    private getPlaceAutocomplete() {
     const autocomplete = new google.maps.places.Autocomplete(this.addresstext.nativeElement,
         {componentRestrictions: { country: 'gr' }});
-        
+
     google.maps.event.addListener(autocomplete, 'place_changed', () => {
         const place = autocomplete.getPlace();
+        this.lat = place.geometry.location.lat();
+        this.lng= place.geometry.location.lng();
+        this.coordinates = new google.maps.LatLng(this.lat, this.lng);
+        this.marker = new google.maps.Marker({
+          position: this.coordinates,
+          map: this.map,
+        });
+        this.mapOptions.center = this.coordinates
+        this.mapInitializer()
     });
 }
 
