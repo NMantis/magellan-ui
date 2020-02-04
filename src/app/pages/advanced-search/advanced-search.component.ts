@@ -11,6 +11,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   @ViewChild('addresstext', { static: false }) addresstext: any;
   autocompleteInput: string;
   queryWait: boolean;
+  kmArray: Array<number> = []
   map: google.maps.Map;
   lat = 37.9838096;
   lng = 23.7275388;
@@ -26,7 +27,9 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
     map: this.map,
   });
   constructor(private location: Location) { }
-  ngOnInit() { }
+  ngOnInit() { 
+    for(let i = 1; i<=20; this.kmArray.push(i++)) {}
+  }
   ngAfterViewInit() {
     this.mapInitializer();
     this.getPlaceAutocomplete();
