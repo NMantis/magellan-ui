@@ -7,14 +7,14 @@
     <div class="flex-form">
         <input class="form-field input" type="text" [(ngModel)]="autocompleteInput" #addresstext>
         <div style="display:flex;justify-content: space-between;flex-wrap:wrap">
+           
             <mat-form-field appearance="outline">
-
                 <mat-label>Rating</mat-label>
                 <mat-select>
-                    <mat-option>1+</mat-option>
-                    <mat-option>2+</mat-option>
-                    <mat-option>3+</mat-option>
-                    <mat-option>4+</mat-option>
+                    <mat-option> <mat-icon>star</mat-icon>1+</mat-option>
+                    <mat-option> <mat-icon>star</mat-icon>2+</mat-option>
+                    <mat-option> <mat-icon>star</mat-icon>3+</mat-option>
+                    <mat-option> <mat-icon>star</mat-icon>4+</mat-option>
                 </mat-select>
             </mat-form-field>
 
@@ -28,17 +28,17 @@
         <mat-form-field appearance="outline">
             <mat-label>Category</mat-label>
             <mat-select>
-                <mat-option>Food</mat-option>
-                <mat-option>Drink</mat-option>
+                <mat-option><mat-icon>restaurant</mat-icon>Food</mat-option>
+                <mat-option><mat-icon>local_bar</mat-icon>Drink</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Price Range</mat-label>
             <mat-select>
-                <mat-option>Cheap</mat-option>
-                <mat-option>Average</mat-option>
-                <mat-option>High</mat-option>
+                <mat-option>Cheap <span style="float:right"><mat-icon>attach_money</mat-icon></span></mat-option>
+                <mat-option>Average<span style="float:right"><mat-icon>attach_money</mat-icon><mat-icon>attach_money</mat-icon></span></mat-option>
+                <mat-option>High<span style="float:right"><mat-icon>attach_money</mat-icon><mat-icon>attach_money</mat-icon><mat-icon>attach_money</mat-icon></span></mat-option>
             </mat-select>
         </mat-form-field>
     </div>
