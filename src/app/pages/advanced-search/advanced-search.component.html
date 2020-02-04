@@ -4,44 +4,43 @@
     </button>
 </div>
 <div class="container">
-    <div class="flex-form">
-        <input class="form-field input" type="text" [(ngModel)]="autocompleteInput" #addresstext>
+    <form class="flex-form" [formGroup]="conditionForm">
+        <input class="form-field input" type="text" [(ngModel)]="autocompleteInput"  [ngModelOptions]="{standalone: true}" #addresstext>
         <div style="display:flex;justify-content: space-between;flex-wrap:wrap">
            
             <mat-form-field appearance="outline">
-                <mat-label>Rating</mat-label>
-                <mat-select>
-                    <mat-option> <mat-icon>star</mat-icon>1+</mat-option>
-                    <mat-option> <mat-icon>star</mat-icon>2+</mat-option>
-                    <mat-option> <mat-icon>star</mat-icon>3+</mat-option>
-                    <mat-option> <mat-icon>star</mat-icon>4+</mat-option>
+                <mat-label><mat-icon>star</mat-icon> Rating</mat-label>
+                <mat-select formControlName="rating">
+                    <mat-option [value]="1">1+</mat-option>
+                    <mat-option [value]="2">2+</mat-option>
+                    <mat-option [value]="3">3+</mat-option>
+                    <mat-option [value]="4">4+</mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>Km Radius</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let km of kmArray">{{km}}</mat-option>
+                <mat-label><mat-icon>my_location</mat-icon> Km Radius</mat-label>
+                <mat-select formControlName="radius">
+                    <mat-option *ngFor="let km of kmArray" [value]="km">{{km}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <mat-form-field appearance="outline">
-            <mat-label>Category</mat-label>
-            <mat-select>
-                <mat-option><mat-icon>restaurant</mat-icon>Food</mat-option>
-                <mat-option><mat-icon>local_bar</mat-icon>Drink</mat-option>
+            <mat-label><mat-icon>restaurant</mat-icon> Category</mat-label>
+            <mat-select formControlName="category">
+                <mat-option [value]="'Food'">Food</mat-option>
+                <mat-option [value]="'Drink'">Drink</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-            <mat-label>Price Range</mat-label>
-            <mat-select>
-                <mat-option>Cheap <span style="float:right"><mat-icon>attach_money</mat-icon></span></mat-option>
-                <mat-option>Average<span style="float:right"><mat-icon>attach_money</mat-icon><mat-icon>attach_money</mat-icon></span></mat-option>
-                <mat-option>High<span style="float:right"><mat-icon>attach_money</mat-icon><mat-icon>attach_money</mat-icon><mat-icon>attach_money</mat-icon></span></mat-option>
+            <mat-label><mat-icon>attach_money</mat-icon> Price Range</mat-label>
+            <mat-select formControlName="price">
+                <mat-option [value]="'Cheap'">Cheap</mat-option>
+                <mat-option [value]="'Average'">Average</mat-option>
+                <mat-option [value]="'High'">High</mat-option>
             </mat-select>
         </mat-form-field>
-    </div>
+    </form>
     <div #mapContainer id="map"></div>
-
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-advanced-search',
@@ -9,31 +10,42 @@ import { Location } from '@angular/common';
 export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
   @ViewChild('addresstext', { static: false }) addresstext: any;
+  conditionForm: FormGroup
   autocompleteInput: string;
   queryWait: boolean;
   kmArray: Array<number> = []
   map: google.maps.Map;
   lat = 37.9838096;
   lng = 23.7275388;
+  chosenRadius = new google.maps.Circle();
   coordinates = new google.maps.LatLng(this.lat, this.lng);
   mapOptions: google.maps.MapOptions = {
     center: this.coordinates,
     zoom: 14,
     disableDefaultUI: true
   };
-
   marker = new google.maps.Marker({
     position: this.coordinates,
     map: this.map,
   });
-  constructor(private location: Location) { }
+
+  constructor(private location: Location,private fb: FormBuilder) { }
   ngOnInit() { 
-    for(let i = 1; i<=20; this.kmArray.push(i++)) {}
+    for(let i = 1; i<=14; this.kmArray.push(i++)) {}
+    this.conditionForm = this.fb.group({
+      rating: null,
+      category: null,
+      radius: null,
+      price: null
+    })
+    this.conditionForm.get('radius').valueChanges
+    .subscribe(distance => this.drawCircle(distance))
   }
   ngAfterViewInit() {
     this.mapInitializer();
     this.getPlaceAutocomplete();
   }
+
   goBack() { this.location.back(); }
 
   private getPlaceAutocomplete() {
@@ -57,4 +69,23 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
     this.marker.setMap(this.map);
   }
 
+  drawCircle(distance: number) {
+    this.chosenRadius.setMap(null)
+    this.map.setZoom(
+      distance > 10? 11 :
+      distance > 4? 12 : 14
+    )
+    const circle = {
+      strokeColor: "#49ccff;",
+      strokeOpacity: 0.2,
+      strokeWeight: 2,
+      fillColor: "#49ccff;",
+      fillOpacity: 0.13,
+      map: this.map,
+      center: this.coordinates,
+      radius: distance * 1000
+    };
+    this.chosenRadius = new google.maps.Circle(circle)
+    this.chosenRadius.bindTo('center', this.marker, 'position');
+  }
 }
