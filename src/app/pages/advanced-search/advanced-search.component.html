@@ -31,12 +31,8 @@
                 <mat-option>High</mat-option>
             </mat-select>
         </mat-form-field>
-
-        <input class="input"
-        type="text"
-        [(ngModel)]="autocompleteInput"
-        #addresstext style="padding: 12px 20px; border: 1px solid #ccc; width: 400px"
-        >
+        
+        <input class="form-field input" type="text" [(ngModel)]="autocompleteInput" #addresstext>
     </div>
     <div #mapContainer id="map"></div>
 
