@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormGroup, FormBuilder } from '@angular/forms';
-
 @Component({
   selector: 'app-advanced-search',
   templateUrl: './advanced-search.component.html',
@@ -10,9 +8,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
   @ViewChild('addresstext', { static: false }) addresstext: any;
-  conditionForm: FormGroup
   autocompleteInput: string;
-  queryWait: boolean;
   kmArray: Array<number> = []
   map: google.maps.Map;
   lat = 37.9838096;
@@ -28,19 +24,12 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
     position: this.coordinates,
     map: this.map,
   });
-
-  constructor(private location: Location,private fb: FormBuilder) { }
-  ngOnInit() { 
-    for(let i = 1; i<=14; this.kmArray.push(i++)) {}
-    this.conditionForm = this.fb.group({
-      rating: null,
-      category: null,
-      radius: null,
-      price: null
-    })
-    this.conditionForm.get('radius').valueChanges
-    .subscribe(distance => this.drawCircle(distance))
-  }
+  radius: number;
+  rating:string;
+  category: string;
+  price: string;
+  constructor(private location: Location) { }
+  ngOnInit() { for(let i = 1; i<=14; this.kmArray.push(i++)) {} }
   ngAfterViewInit() {
     this.mapInitializer();
     this.getPlaceAutocomplete();
@@ -60,7 +49,8 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
       this.lng = place.geometry.location.lng();
       this.coordinates = new google.maps.LatLng(this.lat, this.lng);
       this.marker.setPosition(this.coordinates)
-      this.mapOptions.center = this.coordinates
+      this.mapOptions.center = this.coordinates;
+      this.radius = null;
       this.mapInitializer()
     });
   }
@@ -87,5 +77,9 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
     };
     this.chosenRadius = new google.maps.Circle(circle)
     this.chosenRadius.bindTo('center', this.marker, 'position');
+  }
+
+  search() {
+
   }
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/modules/material.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 //import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RouterModule,Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -13,9 +13,7 @@ const routes: Routes = [
   declarations: [AdvancedSearchComponent],
   imports: [
     CommonModule, 
-    //MatCheckboxModule,
     SharedModule,
-    ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild(routes)
   ],

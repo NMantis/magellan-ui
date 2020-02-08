@@ -16,7 +16,7 @@
     width:60%;
     margin-left:20%;
     justify-content: space-between;
-    background: white;
+    //background: white;
     padding:30px;
     border-radius:8px;
     max-height: calc( 100vh - 90px);
@@ -38,8 +38,31 @@
 }
 
 .form-field{
-    padding: 15px 20px;
-    border: 1px solid#717171;
-    border-radius: 3px;
-    margin-bottom: 20px;
+    padding: 4px;
+    border: 1px solid #717171;
+    border-radius: 5px;
+    position: relative;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
 }
+
+.search{
+    margin-top: 15px;
+    color: #fff;
+    background: #2196f3;
+    align-self:center;
+}
+
+::ng-deep .mat-form-field-wrapper {
+    margin-top:0!important;
+}
+
+.field-wrapper{
+    height:59.7px;
+    border-radius:5px;
+    background:#fff;
+    margin-bottom: 10px;
+    padding: 1px;
+    padding-top: 2.2px;
+}
+mat-form-field{ width:100%}

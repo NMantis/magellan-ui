@@ -48,9 +48,6 @@ form{
     width: 100%;
     text-align: left;
 }
-mat-form-field{
-    width:100%;
-}
 
 .actions{
     flex-direction: row;
@@ -70,11 +67,6 @@ a{
     text-decoration: none;
     background-color: transparent;
 }
-
-mat-checkbox{
-    margin:15px;
-}
-
 .submit{
     color: #fff;
     background: #2196f3;
@@ -100,20 +92,14 @@ mat-checkbox{
     margin: 16px auto;
     display: block;
 }
-
-.spacing{
-    margin-top:100px
-}
-
+mat-form-field{ width:100% }
+.spacing{ margin-top:100px }
+mat-checkbox{ margin:15px; }
 @media screen and (max-width: 600px) {
-    .login-wrapper{
-        padding: 16px;
-    }
+    .login-wrapper{ padding: 16px;}
     .login-form{
         width:90%;
         margin-left:5%;
     }
-    .spacing{
-        margin-top:20px;
-    }
+    .spacing{ margin-top:20px;}
 }

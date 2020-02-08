@@ -4,43 +4,71 @@
     </button>
 </div>
 <div class="container">
-    <form class="flex-form" [formGroup]="conditionForm">
-        <input class="form-field input" type="text" [(ngModel)]="autocompleteInput"  [ngModelOptions]="{standalone: true}" #addresstext>
+    <div class="flex-form">
+        <div class="field-wrapper" style="position:relative">
+        <input class="form-field input" type="text" [(ngModel)]="autocompleteInput" #addresstext>
+    </div>
         <div style="display:flex;justify-content: space-between;flex-wrap:wrap">
-           
-            <mat-form-field appearance="outline">
-                <mat-label><mat-icon>star</mat-icon> Rating</mat-label>
-                <mat-select formControlName="rating">
-                    <mat-option [value]="1">1+</mat-option>
-                    <mat-option [value]="2">2+</mat-option>
-                    <mat-option [value]="3">3+</mat-option>
-                    <mat-option [value]="4">4+</mat-option>
-                </mat-select>
-            </mat-form-field>
 
+            <div class="field-wrapper">
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        <mat-icon>star</mat-icon> Rating
+                    </mat-label>
+                    <mat-select [(ngModel)]="rating">
+                        <mat-option>None</mat-option>
+                        <mat-option [value]="1">1+</mat-option>
+                        <mat-option [value]="2">2+</mat-option>
+                        <mat-option [value]="3">3+</mat-option>
+                        <mat-option [value]="4">4+</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="field-wrapper">
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        <mat-icon>my_location</mat-icon> Distance
+                    </mat-label>
+                    <mat-select [(ngModel)]="radius" (selectionChange)="drawCircle($event.source.value)">
+                        <mat-option>None</mat-option>
+                        <mat-option *ngFor="let km of kmArray" [value]="km">{{km}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="field-wrapper">
             <mat-form-field appearance="outline">
-                <mat-label><mat-icon>my_location</mat-icon> Km Radius</mat-label>
-                <mat-select formControlName="radius">
-                    <mat-option *ngFor="let km of kmArray" [value]="km">{{km}}</mat-option>
+                <mat-label>
+                    <mat-icon>restaurant</mat-icon> Category
+                </mat-label>
+                <mat-select [(ngModel)]="category">
+                    <mat-option>None</mat-option>
+                    <mat-option [value]="'All'">All</mat-option>
+                    <mat-option [value]="'Food'">Food</mat-option>
+                    <mat-option [value]="'Drink'">Drink</mat-option>
+                    <mat-option [value]="'Coffee'">Coffee</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
-        <mat-form-field appearance="outline">
-            <mat-label><mat-icon>restaurant</mat-icon> Category</mat-label>
-            <mat-select formControlName="category">
-                <mat-option [value]="'Food'">Food</mat-option>
-                <mat-option [value]="'Drink'">Drink</mat-option>
-            </mat-select>
-        </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label><mat-icon>attach_money</mat-icon> Price Range</mat-label>
-            <mat-select formControlName="price">
-                <mat-option [value]="'Cheap'">Cheap</mat-option>
-                <mat-option [value]="'Average'">Average</mat-option>
-                <mat-option [value]="'High'">High</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </form>
+        <div class="field-wrapper">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    <mat-icon>attach_money</mat-icon> Price Range
+                </mat-label>
+                <mat-select [(ngModel)]="price">
+                    <mat-option>None</mat-option>
+                    <mat-option [value]="'Cheap'">Cheap</mat-option>
+                    <mat-option [value]="'Average'">Average</mat-option>
+                    <mat-option [value]="'High'">High</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button class="search" (click)="search()">
+            <mat-icon>search</mat-icon> Search
+        </button>
+    </div>
     <div #mapContainer id="map"></div>
 </div>
