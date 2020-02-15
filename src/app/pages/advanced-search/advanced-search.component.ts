@@ -28,6 +28,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   rating:string;
   category: string;
   price: string;
+plc: any;
   constructor(private location: Location) { }
   ngOnInit() { for(let i = 1; i<=14; this.kmArray.push(i++)) {} }
   ngAfterViewInit() {

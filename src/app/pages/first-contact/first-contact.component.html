@@ -1,0 +1,28 @@
+<div class="container">
+    <div *ngFor="let place of places">
+
+       <div class="wrapper">
+        <div class="col">
+            <h3><a [href]="place.website" target="_blank">{{place.name | uppercase}}</a></h3>
+            <div style="display:flex">
+                <mat-icon>place</mat-icon>
+                <a [href]="place.url" target="_blank" style="align-self:flex-end"><div [innerHTML]="place.adr_address"></div></a>
+            </div>
+        </div>
+        <div class="col">
+            <div style="height:49px;">
+                <ng-template [ngIf]="place.opening_hours.open_now" [ngIfElse]="closed">
+                    <span class="is-open open"> Ανοιχτό </span>
+                </ng-template>
+                <ng-template #closed>
+                    <span class="is-open closed"> Κλειστό </span>
+                </ng-template>
+            </div>
+            <div style="display:flex">
+                <mat-icon>phone</mat-icon>
+                <span style="align-self:flex-end">{{place.international_phone_number}}</span>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

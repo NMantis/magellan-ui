@@ -19,6 +19,11 @@ const routes: Routes = [
     canActivate: [AuthguardService]
   },
   {
+    path: 'first-contact',
+    loadChildren: () => import('./pages/first-contact/first-contact.module').then(m => m.FirstContactModule),
+    canActivate: [AuthguardService]
+  },
+  {
     path: 'recommendations',
     loadChildren: () => import('./pages/recommendations/recommendations.module').then(m => m.RecommendationsModule),
     canActivate: [AuthguardService]
