@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FirstContactComponent } from './first-contact.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { RatingsModule } from 'src/app/shared/ratings/ratings.module';
 const routes: Routes = [
     {path: '', component: FirstContactComponent}
   ]
@@ -13,7 +14,8 @@ const routes: Routes = [
     CommonModule, 
     SharedModule,
     RouterModule.forChild(routes),
-    MatCheckboxModule
+    MatCheckboxModule,
+    RatingsModule
   ],
     exports: [FirstContactComponent]
 })

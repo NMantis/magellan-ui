@@ -1,15 +1,14 @@
 <div class="container">
-    <div *ngFor="let place of places">
+    <div *ngFor="let place of places; let index = index">
 
        <div class="wrapper">
         <div class="col">
-            <h3><a [href]="place.website" target="_blank">{{place.name | uppercase}}</a></h3>
+            <h3><a [href]="place.website" target="_blank">{{place.name | titlecase}}</a></h3>
             <div style="display:flex">
                 <mat-icon>place</mat-icon>
-                <a [href]="place.url" target="_blank" style="align-self:flex-end"><div [innerHTML]="place.adr_address"></div></a>
+                <a [href]="place.url" target="_blank" style="align-self:flex-end"><div [innerHTML]="place.vicinity"></div></a>
             </div>
         </div>
-        <!--https://github.com/BioPhoton/angular-star-rating#readme-->
         <div class="col">
             <div style="height:49px;">
                 <ng-template [ngIf]="place.opening_hours?.open_now" [ngIfElse]="closed">
@@ -24,6 +23,11 @@
                 <span style="align-self:flex-end">{{place.international_phone_number}}</span>
             </div>
         </div>
+
+            <app-ratings [rating]='place.rating' [placeId]='place.id+index' 
+            [readonly]="true"
+            (ratingClick)='ratingComponentClick($event)'></app-ratings>
+ 
     </div>
     </div>
 </div>
