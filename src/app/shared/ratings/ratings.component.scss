@@ -5,6 +5,7 @@
 .rating {
     float:left;
     border:none;
+    padding: 0;
 }
 
 .rating:not(:checked) > input {
