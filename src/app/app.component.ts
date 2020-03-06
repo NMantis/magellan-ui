@@ -15,11 +15,11 @@ export class AppComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('access_jwt_token')) {
-      if (this.helper.isTokenExpired(localStorage.getItem('access_jwt_token'))) {
+    if (localStorage.getItem('access_token')) {
+      if (this.helper.isTokenExpired(localStorage.getItem('access_token'))) {
         //token is expired if it returns True
         this.authService.setLoggedIn = false
-        localStorage.removeItem('access_jwt_token')
+        localStorage.removeItem('access_token')
         this.router.navigateByUrl('/login')
       } else {
         //token is not expired if it returns false

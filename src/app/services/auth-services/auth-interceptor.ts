@@ -8,7 +8,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class AuthInterceptor implements HttpInterceptor{
     constructor(private _snackBar: MatSnackBar){ }
     intercept(req:HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
-        const idToken = localStorage.getItem("access_jwt_token");
+        const idToken = localStorage.getItem("access_token");
         if (idToken) {
             const cloned = req.clone({
                 headers: req.headers.set("Authorization",

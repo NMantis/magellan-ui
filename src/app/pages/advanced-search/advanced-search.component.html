@@ -60,9 +60,11 @@
                 </mat-label>
                 <mat-select [(ngModel)]="price">
                     <mat-option>None</mat-option>
-                    <mat-option [value]="'Cheap'">Cheap</mat-option>
-                    <mat-option [value]="'Average'">Average</mat-option>
-                    <mat-option [value]="'High'">High</mat-option>
+                    <mat-option [value]="0">Free</mat-option>
+                    <mat-option [value]="1">Inexpensive</mat-option>
+                    <mat-option [value]="2">Moderate</mat-option>
+                    <mat-option [value]="3">Expensive</mat-option>
+                    <mat-option [value]="4">Very Expensive</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>

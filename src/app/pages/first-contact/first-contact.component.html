@@ -9,9 +9,10 @@
                 <a [href]="place.url" target="_blank" style="align-self:flex-end"><div [innerHTML]="place.adr_address"></div></a>
             </div>
         </div>
+        <!--https://github.com/BioPhoton/angular-star-rating#readme-->
         <div class="col">
             <div style="height:49px;">
-                <ng-template [ngIf]="place.opening_hours.open_now" [ngIfElse]="closed">
+                <ng-template [ngIf]="place.opening_hours?.open_now" [ngIfElse]="closed">
                     <span class="is-open open"> Ανοιχτό </span>
                 </ng-template>
                 <ng-template #closed>

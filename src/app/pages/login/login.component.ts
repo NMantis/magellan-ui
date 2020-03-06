@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       .subscribe((resp: any) => {
         if (resp.accessToken) {
           this.router.navigate([''])
-          localStorage.setItem('access_jwt_token', resp.accessToken);
+          localStorage.setItem('access_token', resp.accessToken);
           this.authService.loginStatusUpdate(); //updates the login status in AuthService              
         }
       })
