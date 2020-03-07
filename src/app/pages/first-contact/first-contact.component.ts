@@ -15,7 +15,7 @@ import { trigger, transition, style, animate, query, stagger, animateChild } fro
     ]),
     trigger('list', [
       transition(':enter', [
-        query('@places', stagger(300, animateChild()))
+        query('@places', stagger(200, animateChild()))
       ]),
     ])
   ]

@@ -14,11 +14,19 @@ h3{
     align-items: flex-end;
 }
 
+.top-row{
+    display:flex;
+    justify-content: space-between;
+    width:100%;flex-wrap:wrap;
+    align-items:baseline;
+}
+
 .place-data{
     display: flex;
     width:100%;
     justify-content: space-between;
-    align-items:baseline
+    align-items:baseline;
+    flex-wrap:wrap;
 }
 .wrapper{
     padding: 1.5rem !important;
@@ -47,3 +55,11 @@ a{
 .green {  color: #00bc8b; }
 .yellow{ color: #93a800 }
 .red { color: #bc2300 }
+
+@media screen and (max-width: 1150px) {
+    .container {
+      width:100%;
+      padding:5px;
+      margin:0;
+}
+}

@@ -2,7 +2,7 @@
     <div *ngFor="let place of places; let index = index" @places>
 
         <div class="wrapper" >
-            <div style="display:flex;justify-content: space-between;width:100%">
+            <div class="top-row">
                 <div></div>
                 <h3><a [href]="place.website" target="_blank">{{place.name | titlecase}}</a></h3>
 
@@ -29,7 +29,6 @@
                         <span class="is-open closed"> Κλειστό </span>
                     </ng-template>
                 </div>
-
 
                 <app-ratings [rating]='place.rating' [placeId]='place.id+index' [readonly]="true"
                     (ratingClick)='ratingComponentClick($event)'></app-ratings>
