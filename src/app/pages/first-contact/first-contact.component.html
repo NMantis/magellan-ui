@@ -1,7 +1,7 @@
-<div class="container">
-    <div *ngFor="let place of places; let index = index">
+<div class="container" @list>
+    <div *ngFor="let place of places; let index = index" @places>
 
-        <div class="wrapper">
+        <div class="wrapper" >
             <div style="display:flex;justify-content: space-between;width:100%">
                 <div></div>
                 <h3><a [href]="place.website" target="_blank">{{place.name | titlecase}}</a></h3>
