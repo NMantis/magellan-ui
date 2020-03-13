@@ -30,7 +30,10 @@ export class LoginComponent implements OnInit {
         if (resp.accessToken) {
           this.router.navigate([''])
           localStorage.setItem('access_token', resp.accessToken);
-          this.authService.loginStatusUpdate(); //updates the login status in AuthService              
+          this.authService.loginStatusUpdate(); //updates the login status in AuthService     
+          resp.firstLogin? 
+          this.router.navigateByUrl('/welcome') :
+          this.router.navigateByUrl('')     
         }
       })
   }

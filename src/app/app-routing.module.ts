@@ -24,6 +24,11 @@ const routes: Routes = [
     canActivate: [AuthguardService]
   },
   {
+    path: 'welcome',
+    loadChildren: () => import('./pages/first-login/first-login.module').then(m => m.FirstLoginModule),
+    canActivate: [AuthguardService]
+  },
+  {
     path: 'recommendations',
     loadChildren: () => import('./pages/recommendations/recommendations.module').then(m => m.RecommendationsModule),
     canActivate: [AuthguardService]
