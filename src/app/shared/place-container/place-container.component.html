@@ -1,0 +1,36 @@
+<div class="wrapper" >
+    <div class="top-row">
+        <div></div>
+        <h3><a [href]="place.website || ' '" target="_blank">{{place.name | titlecase}}</a></h3>
+
+        <div>
+            <h4 class="green" *ngIf="place.match"
+            [ngClass]="place.match > 80? 'green' : match > 40? 'yellow' : 'red'">Match: 93%</h4> <!-- -->
+        </div>
+    </div>
+
+    <div class="place-data">
+        <div class="icon-info">
+            <mat-icon>place</mat-icon>
+            <a [href]="place.url || ' '" target="_blank">
+                <div [innerHTML]="place.vicinity"></div>
+            </a>
+        </div>
+        <div class="icon-info">
+            <mat-icon>phone</mat-icon>
+            <span style="margin-right:20px">{{place.international_phone_number || 'Not Available'}}</span>
+
+            <ng-template [ngIf]="place.opening_hours?.open_now " [ngIfElse]="closed">
+                <span class="is-open open"> Ανοιχτό </span>
+            </ng-template>
+            <ng-template #closed>
+                <span class="is-open closed"> Κλειστό </span>
+            </ng-template>
+        </div>
+
+        <app-ratings [rating]='place.rating' [placeId]='place.id+index' [readonly]="readonly"
+            (ratingClick)='ratingComponentClick($event)'></app-ratings>
+
+    </div>
+
+</div>

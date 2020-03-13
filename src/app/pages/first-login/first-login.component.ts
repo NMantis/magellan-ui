@@ -28,10 +28,10 @@ export class FirstLoginComponent implements OnInit {
     this.placeService.getAllPlaces()
     .subscribe(places => {
       places.map(place => {
-        parseInt(place.rating)
+        place.rating = parseInt(place.rating)
         return place;
       })
-      this.places = places
+      this.places = places || []
     })
   }
 

@@ -1,5 +1,7 @@
-<div class="container" @list>
-    <div *ngFor="let place of places; let index = index" @places>
-        
-    </div>
+<div class="container" @list *ngIf="places.length">
+    <table style="width:100%">
+        <tr *ngFor="let place of places; let index = index" @places>
+            <app-place-container [place]="place" [readonly]="false"></app-place-container>
+        </tr>
+    </table>
 </div>
