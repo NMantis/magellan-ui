@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FirstLoginComponent } from './first-login.component';
 import { PlaceContainerModule } from 'src/app/shared/place-container/place-container.module';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 const routes: Routes = [
     {path: '', component: FirstLoginComponent}
   ]
@@ -13,7 +14,8 @@ const routes: Routes = [
     CommonModule, 
     SharedModule,
     RouterModule.forChild(routes),
-    PlaceContainerModule
+    PlaceContainerModule,
+    MatCheckboxModule
   ],
   exports: [FirstLoginComponent]
 })

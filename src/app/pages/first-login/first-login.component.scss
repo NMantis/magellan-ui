@@ -1,6 +1,38 @@
 .container{
     margin-left:15%;
     width:70%;
-    padding:25px;
-    height: calc(100% - 50px);
+    margin-top:15vh;
+    height: 85vh;
+}
+.wrapper{  box-sizing: border-box; }
+.header {
+    top: 0;
+    left: 13%;
+    right: 14%;
+    height: 16vh;
+    z-index: 3;
+    position: absolute;
+    background: linear-gradient(to right bottom, #080a0d, #24292b, #3f4848, #606964, #878b80);
+    border-radius: 0px 0px 10px 10px;
+    display:flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+    align-items: center;
+    mat-checkbox{ z-index:4; color:white}
+}
+mat-form-field{
+    padding-top: 0.3rem;
+    background-color: white;
+    border-radius: 20px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin-bottom: 1%;
+    height: 44.31px;
+    border: 1px solid black;
+  }
+
+  .title{ color: #fff; }
+::ng-deep .mat-checkbox-frame {
+    border-color: white;
+    background-color: #fff!important;
 }

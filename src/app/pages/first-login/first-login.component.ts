@@ -28,7 +28,7 @@ export class FirstLoginComponent implements OnInit {
     this.placeService.getAllPlaces()
     .subscribe(places => {
       places.map(place => {
-        place.rating = parseInt(place.rating)
+        delete place.rating
         return place;
       })
       this.places = places || []
