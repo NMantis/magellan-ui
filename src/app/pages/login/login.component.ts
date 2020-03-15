@@ -26,15 +26,10 @@ export class LoginComponent implements OnInit {
     let emaill = this.loginForm.get('email').value
     let passwordd = this.loginForm.get('password').value
     this.authService.login(emaill, passwordd)
-      .subscribe((resp: any) => {
-        if (resp.accessToken) {
-          this.router.navigate([''])
-          localStorage.setItem('access_token', resp.accessToken);
-          this.authService.loginStatusUpdate(); //updates the login status in AuthService     
-          resp.firstLogin? 
-          this.router.navigateByUrl('/welcome') :
-          this.router.navigateByUrl('')     
-        }
-      })
+      .subscribe((firstLogin: boolean) => {  
+          firstLogin? 
+            this.router.navigateByUrl('/welcome') :
+            this.router.navigateByUrl('')     
+        })
   }
 }

@@ -28,7 +28,7 @@
             </ng-template>
         </div>
 
-        <app-ratings [rating]='place.rating' [placeId]='place.id+index' [readonly]="readonly"
+        <app-ratings [rating]='place.rating' [placeId]='place.id' [readonly]="readonly"
             (ratingClick)='ratingComponentClick($event)'></app-ratings>
 
     </div>

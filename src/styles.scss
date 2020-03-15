@@ -11,3 +11,19 @@ body {
 .success{ color: #4F8A10;background-color: #DFF2BF; }
 .warning{ color: rgb(209, 53, 61);background-color: rgb(223, 145, 145); }
 .mat-form-field-appearance-outline .mat-form-field-outline {color: rgba(0, 0, 0, 0.42)}
+button[disabled]:active, button[disabled]:not(.mat-icon-button),
+input[type="button"][disabled]:active,
+input[type="button"][disabled],
+input[type="submit"][disabled]:active,
+input[type="submit"][disabled] ,
+button[disabled]:hover,
+input[type="button"][disabled]:hover,
+input[type="submit"][disabled]:hover,
+.mat-button[disabled][disabled],
+.mat-flat-button[disabled][disabled],
+.mat-raised-button[disabled][disabled]{
+  background: rgba(253, 253, 253, 0.25);
+  color:#fff;
+  cursor: not-allowed;
+}
+

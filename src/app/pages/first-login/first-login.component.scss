@@ -19,19 +19,16 @@
     flex-wrap:wrap;
     align-items: center;
     mat-checkbox{ z-index:4; color:white}
+    min-height:90px;
 }
-mat-form-field{
-    padding-top: 0.3rem;
-    background-color: white;
-    border-radius: 20px;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    margin-bottom: 1%;
-    height: 44.31px;
-    border: 1px solid black;
-  }
 
-  .title{ color: #fff; }
+.title{ color: #fff; }
+.save-btn {
+    margin-top: 15px;
+    color: #fff;
+    background: #2196f3;
+    align-self: center;
+}
 ::ng-deep .mat-checkbox-frame {
     border-color: white;
     background-color: #fff!important;

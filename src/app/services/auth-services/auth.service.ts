@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { tap, mergeMap } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -30,13 +31,23 @@ export class AuthService {
   ) { }
 
   public login(usernameOrEmail: string, password: string) {
-    return this.http.post<any>(this.baseUrl + '/api/auth/signin', { usernameOrEmail, password }, httpOptions)
+    const signin = this.http.post<any>(this.baseUrl + '/api/auth/signin', { usernameOrEmail, password }, httpOptions)
+    const firstLogin = this.http.get<boolean>(`${this.baseUrl}/api/users/first`)
+
+    return signin.pipe(
+        tap(resp => {
+          if(resp.accessToken){
+            localStorage.setItem('access_token', resp.accessToken)
+            AuthService.isLoggedIn = true;
+          }
+        }),
+        mergeMap(() => firstLogin))
   }
 
   public loginStatusUpdate() {
     //is called if login is successfull and updates the isLoggedIN boolean
-      if (localStorage.getItem('access_token')) 
-        AuthService.isLoggedIn = true;
+    if (localStorage.getItem('access_token'))
+      AuthService.isLoggedIn = true;
   }
 
   public logout() {

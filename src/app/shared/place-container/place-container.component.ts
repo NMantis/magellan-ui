@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-place-container',
@@ -8,13 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PlaceContainerComponent implements OnInit {
   @Input() readonly: boolean;
   @Input() place: any;
+  @Output() userRating = new EventEmitter<any>()
   constructor() { }
 
   ngOnInit() {
   }
 
-  ratingComponentClick(clickObj: any): void {
-
-    }
+  ratingComponentClick(rating): void {
+    this.userRating.emit(rating)
+  }
 
 }

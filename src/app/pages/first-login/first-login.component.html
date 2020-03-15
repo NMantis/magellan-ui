@@ -1,21 +1,21 @@
 <div class="wrapper">
 
     <div class="header mat-elevation-z2">
-        <mat-form-field>
-            <mat-icon matPrefix>search</mat-icon>
-            <input matInput placeholder="Search">
-        </mat-form-field>
-        <span class="title">Help us make better recommendations by rating at least 5 of the below places.</span>
-        <div style="display:flex;flex-direction:column">
-            <mat-checkbox>Food</mat-checkbox>
-            <mat-checkbox>Drink</mat-checkbox>
-            <mat-checkbox>Coffee</mat-checkbox>
+
+        <div style="display:flex;flex-direction: column;">
+            <div *ngFor="let type of types">
+                <mat-checkbox (change)="filter($event)" [name]="type">{{type | titlecase}}</mat-checkbox>
+            </div>
         </div>
+
+        <span class="title">Help us make better recommendations by rating at least 5 of the below places.</span>
+        <button mat-flat-button class="save-btn" (click)="updateFavorites()" [disabled]="favorites.length < 5">Save Preferences</button>
+
     </div>
-    <div class="container" @list *ngIf="places">
+    <div class="container" @list *ngIf="filteredPlaces">
         <table style="width:100%">
-            <tr *ngFor="let place of places; let index = index" @places>
-                <app-place-container [place]="place" [readonly]="false"></app-place-container>
+            <tr *ngFor="let place of filteredPlaces; let index = index" @places>
+                <app-place-container [place]="place" [readonly]="false" (userRating)="saveRatings($event)"></app-place-container>
             </tr>
         </table>
     </div>
