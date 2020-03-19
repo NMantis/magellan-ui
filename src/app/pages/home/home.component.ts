@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from '@angular/platform-browser';
 import { simpleFadeIn } from 'src/app/animations';
+import { SearchService } from 'src/app/services/places/search.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,6 +12,7 @@ import { simpleFadeIn } from 'src/app/animations';
 export class HomeComponent implements OnInit {
   show: boolean;
   constructor(
+    public searchService: SearchService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer) { 
       this.matIconRegistry.addSvgIcon(
@@ -24,4 +26,8 @@ export class HomeComponent implements OnInit {
     }
 
   ngOnInit() { setTimeout(()=> this.show = true, 1400) }
+
+  quickSearch() {
+    this.searchService.quickSearch().subscribe()
+  }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceService } from 'src/app/services/places/place.service';
 import { trigger, transition, style, animate, query, stagger, animateChild } from '@angular/animations';
+import { UserService } from 'src/app/services/user/user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-first-login',
   templateUrl: './first-login.component.html',
@@ -30,8 +32,9 @@ export class FirstLoginComponent implements OnInit {
   cafe = [];
   favorites = [];
   constructor(
-    public placeService: PlaceService) { }
-    //public userService: UserService) { }
+    public placeService: PlaceService,
+    public userService: UserService,
+    private router: Router) { }
 
   ngOnInit() {
     this.placeService.getAllPlaces()
@@ -69,7 +72,8 @@ export class FirstLoginComponent implements OnInit {
   }
 
   updateFavorites(){
-
+    this.userService.updateFavorites(this.favorites)
+      .subscribe(()=> this.router.navigateByUrl(''))
   }
 
   saveRatings(userRating) {

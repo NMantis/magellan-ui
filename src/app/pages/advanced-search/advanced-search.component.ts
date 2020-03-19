@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { SearchService } from 'src/app/services/places/search.service';
 @Component({
   selector: 'app-advanced-search',
   templateUrl: './advanced-search.component.html',
@@ -29,7 +30,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   category: string;
   price: string;
   plc: any;
-  constructor(private location: Location) { }
+  constructor(private location: Location,public searchService: SearchService) { }
   ngOnInit() { for(let i = 1; i<=14; this.kmArray.push(i++)) {} }
   ngAfterViewInit() {
     this.mapInitializer();
@@ -81,6 +82,17 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   }
 
   search() {
-
+    const preferences = {
+      radius: this.radius,
+      category: this.category,
+      price: this.price,
+      rating: this.rating,
+      center: {
+        lat: this.lat,
+        lng: this.lng
+      }
+    }
+    this.searchService.advancedSearch(preferences || {})
+      .subscribe(resp => console.log(resp)) //animation and on response navigate to recommended places
   }
 }

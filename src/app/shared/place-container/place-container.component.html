@@ -18,7 +18,7 @@
         </div>
         <div class="icon-info">
             <mat-icon>phone</mat-icon>
-            <span style="margin-right:20px">{{place.international_phone_number || 'Not Available'}}</span>
+            <span style="margin-right:20px">{{place.phone || 'Not Available'}}</span>
 
             <ng-template [ngIf]="place.opening_hours?.open_now " [ngIfElse]="closed">
                 <span class="is-open open"> Ανοιχτό </span>
