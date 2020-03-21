@@ -27,7 +27,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
     map: this.map,
   });
   radius: number;
-  rating:string;
+  rating: string;
   category: string;
   price: string;
   plc: any;
@@ -36,7 +36,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
     private location: Location,
     public searchService: SearchService,
     private router: Router) { }
-  ngOnInit() { for(let i = 1; i<=14; this.kmArray.push(i++)) {} }
+  ngOnInit() { for (let i = 1; i <= 14; this.kmArray.push(i++)) { } }
   ngAfterViewInit() {
     this.mapInitializer();
     this.getPlaceAutocomplete();
@@ -69,8 +69,8 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   drawCircle(distance: number) {
     this.chosenRadius.setMap(null)
     this.map.setZoom(
-      distance > 10? 11 :
-      distance > 4? 12 : 14
+      distance > 10 ? 11 :
+        distance > 4 ? 12 : 14
     )
     const circle = {
       strokeColor: "#49ccff;",
@@ -87,21 +87,24 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   }
 
   search() {
-    setTimeout(()=> this.loading = true, 3000)
-    const preferences = {
-      radius: this.radius,
-      category: this.category,
-      price: this.price,
-      rating: this.rating,
-      center: {
-        lat: this.lat,
-        lng: this.lng
+    this.loading = true
+
+    setTimeout(() => {
+      const preferences = {
+        radius: this.radius,
+        category: this.category,
+        price: this.price,
+        rating: this.rating,
+        center: {
+          lat: this.lat,
+          lng: this.lng
+        }
       }
-    }
-    this.searchService.advancedSearch(preferences || {})
-      .subscribe(resp => {
-        //this.router.navigateByUrl('recommendations')
-        this.loading = false
-      }) 
+      this.searchService.advancedSearch(preferences || {})
+        .subscribe(resp => {
+          //this.router.navigateByUrl('recommendations')
+          this.loading = false
+        })
+    }, 4000)
   }
 }

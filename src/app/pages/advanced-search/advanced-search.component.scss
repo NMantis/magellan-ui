@@ -4,6 +4,14 @@
     width: 90%;
     background:transparent;
     padding:20px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    h2{
+        color: #fff; 
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        font-weight: 400;
+    }
     button{
         color:#fff;
         margin-left:15%;
@@ -13,10 +21,10 @@
 .container{
     display:flex;
     flex-wrap:wrap;
+    align-items:center;
     width:70%;
     margin-left:15%;
     justify-content: space-between;
-    //background: white;
     padding:30px;
     border-radius:8px;
     max-height: calc( 100vh - 90px);
@@ -29,12 +37,13 @@
     min-width:40%;
     margin-bottom: 20px;
     position:relative;
+    margin-right:15px;
 }
 
 #map {
     height: 350px;
     min-width:50%;
-    width: 700px;
+    width: 500px;
 }
 
 .form-field{
@@ -66,3 +75,21 @@
     padding-top: 2.2px;
 }
 mat-form-field{ width:100%}
+
+@media screen and (max-width: 600px) { 
+    .field-wrapper, .flex-form { width:100%}
+    .flex-form { margin-right: 0; }
+    .header{ button { margin:0 } }
+}
+
+@media screen and (max-width: 1324px) { 
+    .container{
+        width:calc(100% - 30px);
+        margin-left:0;
+        padding:15px;
+        padding-bottom: 200px;
+    }
+}
+@media screen and (max-width: 960px) { 
+    .container{ justify-content: center; }
+}

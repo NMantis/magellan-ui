@@ -73,4 +73,12 @@ span:before{
         transform: rotate(360deg);
     }
 }
-  
+
+@media screen and (max-width: 530px) { 
+    .multi-spinner-container {
+        width: 200px;
+        height: 200px;
+        margin-top:45%;
+      }
+      span:before{ font-size: 13px; }
+}
