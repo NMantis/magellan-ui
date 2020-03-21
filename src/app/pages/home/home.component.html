@@ -1,4 +1,5 @@
 <div class="wrapper">
+  <app-loading *ngIf="loading"></app-loading>
   <div class="header">
     <h1>Welcome to Magellan</h1>
     <h2>Explore Your Options</h2>
@@ -46,7 +47,7 @@
     </div>
 
     <div class="btn-wrapper">
-      <button class="btn third">
+      <button class="btn third" (click)="quickSearch()">
         <svg width="150px" height="150px" class="border">
           <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">

@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,7 +10,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [FirstLoginComponent],
   imports: [
-    CommonModule, 
     SharedModule,
     RouterModule.forChild(routes),
     PlaceContainerModule,

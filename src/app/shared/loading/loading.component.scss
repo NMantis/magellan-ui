@@ -4,14 +4,15 @@
     bottom:0;
     left:0;
     right:0;
-    background: rgba(0,0,0,0.8)
+    background: rgba(0,0,0,0.85);
+    z-index:99;
 }
    
 .multi-spinner-container {
     width: 500px;
     height: 500px;
     position: relative;
-    margin: 2% auto;
+    margin: 4% auto;
     overflow: hidden;
   }
   
@@ -25,8 +26,8 @@
     height: calc(100% - 9.9px);
     border: 6px solid transparent;
     border-radius: 50%;
-    -webkit-animation: spin 5s cubic-bezier(0.17, 0.49, 0.96, 0.76) infinite;
-    animation: spin 5s cubic-bezier(0.17, 0.49, 0.96, 0.76) infinite;
+    -webkit-animation: spin 4s cubic-bezier(0.17, 0.49, 0.96, 0.76) infinite;
+    animation: spin 4s cubic-bezier(0.17, 0.49, 0.96, 0.76) infinite;
 }     
 span:before{
     position: absolute;
@@ -35,8 +36,8 @@ span:before{
     left: 29%;
     color: white;
     font-size: 22px;
-    -webkit-animation: changeText infinite 5s;
-    animation: changeText infinite 5s;
+    -webkit-animation: changeText infinite 4.5s;
+    animation: changeText infinite 4.5s;
     content: '';
 }
 @-webkit-keyframes spin {

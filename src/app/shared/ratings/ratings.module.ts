@@ -5,6 +5,6 @@ import { RatingsComponent } from './ratings.component';
 @NgModule({
   declarations: [RatingsComponent],
   imports: [ CommonModule ],
-  exports: [RatingsComponent, CommonModule]
+  exports: [RatingsComponent]
 })
 export class RatingsModule { }

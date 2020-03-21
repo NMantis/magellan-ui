@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchService } from 'src/app/services/places/search.service';
+import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-advanced-search',
   templateUrl: './advanced-search.component.html',
@@ -101,9 +102,9 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
         }
       }
       this.searchService.advancedSearch(preferences || {})
+        .pipe(finalize(() => this.loading = false))
         .subscribe(resp => {
-          //this.router.navigateByUrl('recommendations')
-          this.loading = false
+          //this.router.navigateByUrl(`recommendations/${resp.id}`)
         })
     }, 4000)
   }

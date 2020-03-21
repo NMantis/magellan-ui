@@ -14,7 +14,7 @@
     </div>
     <div class="container" @list *ngIf="filteredPlaces">
         <table style="width:100%">
-            <tr *ngFor="let place of filteredPlaces; let index = index" @places>
+            <tr *ngFor="let place of filteredPlaces" @places>
                 <app-place-container [place]="place" [readonly]="false" (userRating)="saveRatings($event)"></app-place-container>
             </tr>
         </table>
