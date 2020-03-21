@@ -24,7 +24,7 @@ const routes: Routes = [
     canActivate: [AuthguardService]
   },
   {
-    path: 'recommendations',
+    path: 'recommendations/:id',
     loadChildren: () => import('./pages/recommendations/recommendations.module').then(m => m.RecommendationsModule),
     canActivate: [AuthguardService]
   },

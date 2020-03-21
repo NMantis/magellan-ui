@@ -17,4 +17,8 @@ export class PlaceService {
   getAllPlaces() {
     return this.http.get<any>(`${this.baseUrl}/api/places/all`)
   }
+
+  getRecommendations(id: string) {
+    return this.http.get<any>(`${this.baseUrl}/api/places/all`)
+  }
 }

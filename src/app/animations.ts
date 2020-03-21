@@ -1,17 +1,4 @@
-import { trigger, animate, style, transition, state } from '@angular/animations';
-
-export const slideInBottom = [
-    trigger('slideInBottom', [
-        state('void',
-            style({
-                transform: 'translateY(100%)',
-            })),
-        state('*', style({
-            transform: 'translateY(0)',
-        })),
-        transition('void => *', animate('300ms')),
-        transition('* => void', animate('300ms'))
-    ])]
+import { trigger, animate, style, transition, state, query, stagger, animateChild } from '@angular/animations';
 
 export const simpleFadeIn = [
     trigger('simpleFadeIn', [
@@ -33,15 +20,21 @@ export const fadeIn = [
     ])
 ]
 
-export const slideInRight = [
-    trigger('slideInRight', [
-        state('void', style({
-            transform: 'translateX(100%)',
-        })),
-        state('*', style({
-            transform: 'translateX(0)',
-        })),
-        transition('void => *', animate('300ms')),
-        transition('* => void', animate('300ms'))
-    ])
+export const list = [
+    trigger('list', [
+        transition(':enter', [
+          query('@places', stagger(200, animateChild()))
+        ]),
+      ])
+
+]
+
+export const places = [
+    trigger('places', [
+        transition(':enter', [
+          style({ transform: 'scale(0.5)', opacity: 0 }),  // initial
+          animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
+            style({ transform: 'scale(1)', opacity: 1 }))  // final
+        ])
+      ])
 ]

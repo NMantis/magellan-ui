@@ -1,26 +1,13 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PlaceService } from 'src/app/services/places/place.service';
-import { trigger, transition, style, animate, query, stagger, animateChild } from '@angular/animations';
 import { UserService } from 'src/app/services/user/user.service';
 import { Router } from '@angular/router';
+import { places, list } from 'src/app/animations';
 @Component({
   selector: 'app-first-login',
   templateUrl: './first-login.component.html',
   styleUrls: ['./first-login.component.scss'],
-  animations: [
-    trigger('places', [
-      transition(':enter', [
-        style({ transform: 'scale(0.5)', opacity: 0 }),  // initial
-        animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
-          style({ transform: 'scale(1)', opacity: 1 }))  // final
-      ])
-    ]),
-    trigger('list', [
-      transition(':enter', [
-        query('@places', stagger(200, animateChild()))
-      ]),
-    ])
-  ]
+  animations: [ list, places ]
 })
 export class FirstLoginComponent implements OnInit,AfterViewInit {
   places: any;
