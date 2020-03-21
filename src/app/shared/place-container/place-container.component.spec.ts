@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PlaceContainerComponent } from './place-container.component';
+
 
 describe('PlaceContainerComponent', () => {
   let component: PlaceContainerComponent;

@@ -1,4 +1,4 @@
-import { Component, OnChanges, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
   selector: 'app-ratings',

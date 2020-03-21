@@ -1,8 +1,8 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { list, places } from 'src/app/animations';
 import { PlaceService } from 'src/app/services/places/place.service';
 import { UserService } from 'src/app/services/user/user.service';
-import { Router } from '@angular/router';
-import { places, list } from 'src/app/animations';
 @Component({
   selector: 'app-first-login',
   templateUrl: './first-login.component.html',

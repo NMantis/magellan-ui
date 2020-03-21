@@ -1,11 +1,11 @@
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { NgModule } from '@angular/core';
-import { SharedModule } from 'src/app/modules/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './register.component';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from 'src/app/modules/material.module';
+import { RegisterComponent } from './register.component';
 
 const routes: Routes = [{
   path: '', component: RegisterComponent

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { PlaceService } from 'src/app/services/places/place.service';
 import { list, places } from 'src/app/animations';
+import { PlaceService } from 'src/app/services/places/place.service';
 
 @Component({
   selector: 'app-recommendations',

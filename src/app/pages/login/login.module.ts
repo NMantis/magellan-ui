@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { LoginComponent } from './login.component';
-import { SharedModule } from 'src/app/modules/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from 'src/app/modules/material.module';
+import { LoginComponent } from './login.component';
 @NgModule({
   declarations: [LoginComponent],
   imports: [

@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { SearchService } from 'src/app/services/places/search.service';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { SearchService } from 'src/app/services/places/search.service';
 @Component({
   selector: 'app-advanced-search',
   templateUrl: './advanced-search.component.html',
