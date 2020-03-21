@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PlaceService } from 'src/app/services/places/place.service';
 import { trigger, transition, style, animate, query, stagger, animateChild } from '@angular/animations';
 import { UserService } from 'src/app/services/user/user.service';
@@ -22,7 +22,7 @@ import { Router } from '@angular/router';
     ])
   ]
 })
-export class FirstLoginComponent implements OnInit {
+export class FirstLoginComponent implements OnInit,AfterViewInit {
   places: any;
   allPlaces: any;
   filteredPlaces: any;
@@ -36,6 +36,8 @@ export class FirstLoginComponent implements OnInit {
     public userService: UserService,
     private router: Router) { }
 
+  ngAfterViewInit(): void { window.scroll(0,0) }
+  
   ngOnInit() {
     this.placeService.getAllPlaces()
       .subscribe(places => {

@@ -1,0 +1,76 @@
+.wrapper {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background: rgba(0,0,0,0.8)
+}
+   
+.multi-spinner-container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    margin: 2% auto;
+    overflow: hidden;
+  }
+  
+.line-1{border-top-color: #356354!important;}
+.line-2{border-top-color: #446b53!important;}
+.line-3 {border-top-color: #436a53!important;}
+.line-4{border-top-color:#537351!important;}
+.multi-spinner {
+    position: absolute;
+    width: calc(100% - 9.9px);
+    height: calc(100% - 9.9px);
+    border: 6px solid transparent;
+    border-radius: 50%;
+    -webkit-animation: spin 5s cubic-bezier(0.17, 0.49, 0.96, 0.76) infinite;
+    animation: spin 5s cubic-bezier(0.17, 0.49, 0.96, 0.76) infinite;
+}     
+span:before{
+    position: absolute;
+    z-index: 10;
+    top: 49%;
+    left: 29%;
+    color: white;
+    font-size: 22px;
+    -webkit-animation: changeText infinite 5s;
+    animation: changeText infinite 5s;
+    content: '';
+}
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes changeText { 
+    0% { content: 'Calculating Inputs..'}
+    1%{ content: 'Calculating Inputs..'}
+    33% {  content: 'Fetching Recommendations' }
+    66% {  content: ' Washing Hands..' }
+    100% {  content: ' Preparing Data..' }
+}       
+@keyframes changeText { 
+    0% { content: 'Calculating Inputs..'}
+    1%{ content: 'Calculating Inputs..'}
+    33% {  content: 'Fetching Recommendations' }
+    66% {  content: ' Washing Hands..' }
+    100% {  content: ' Preparing Data..' }
+}       
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+  

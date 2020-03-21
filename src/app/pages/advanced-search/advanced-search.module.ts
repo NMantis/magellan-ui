@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AdvancedSearchComponent } from './advanced-search.component';
+import { LoadingModule } from 'src/app/shared/loading/loading.module';
 
 const routes: Routes = [
     {path: '', component: AdvancedSearchComponent}
@@ -15,7 +16,8 @@ const routes: Routes = [
     CommonModule, 
     SharedModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    LoadingModule
   ],
     exports: [AdvancedSearchComponent]
 })
