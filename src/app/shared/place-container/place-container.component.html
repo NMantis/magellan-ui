@@ -1,7 +1,11 @@
 <div class="wrapper" >
     <div class="top-row">
-        <div></div>
-        <h3><a [href]="place.website || ' '" target="_blank">{{place.name | titlecase}}</a></h3>
+        <div class="icons-container">
+            <mat-icon *ngIf="hasFood" title="Restaurant">restaurant</mat-icon>
+            <mat-icon *ngIf="hasDrinks" title="Bar">local_bar</mat-icon>
+            <mat-icon *ngIf="hasCoffee" title="Cafe">local_cafe</mat-icon>
+        </div>
+        <h3>{{place.name | titlecase}}</h3>
 
         <div>
             <h4 class="green" *ngIf="place.match"
@@ -12,9 +16,7 @@
     <div class="place-data">
         <div class="icon-info">
             <mat-icon>place</mat-icon>
-            <a [href]="place.url || ' '" target="_blank">
-                <div [innerHTML]="place.vicinity"></div>
-            </a>
+                <div class="vicinity" [innerHTML]="place.vicinity"></div>
         </div>
         <div class="icon-info">
             <mat-icon>phone</mat-icon>

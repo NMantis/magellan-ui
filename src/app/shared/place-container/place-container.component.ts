@@ -14,6 +14,15 @@ export class PlaceContainerComponent implements OnInit {
   ngOnInit() {
   }
 
+  get hasFood() {
+    return this.place.types.includes('food')
+  }
+  get hasDrinks() {
+    return this.place.types.includes('bar')
+  }
+  get hasCoffee() {
+    return this.place.types.includes('cafe')
+  }
   ratingComponentClick(rating): void {
     this.userRating.emit(rating)
   }

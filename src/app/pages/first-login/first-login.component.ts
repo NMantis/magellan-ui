@@ -48,7 +48,6 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
   }
 
   filter(checkbox) {
-    console.log(checkbox)
     if (checkbox.checked)
       this.filteredPlaces = this.filteredPlaces.filter(p => p.types.includes(checkbox.source.name))
     else 
@@ -75,7 +74,5 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
     })
     if(!alreadyExists)
       this.favorites.push(userRating)
-
-    console.log(this.favorites)
   }
 }
