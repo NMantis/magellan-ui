@@ -33,6 +33,21 @@ const routes: Routes = [
     loadChildren: () => import('./pages/advanced-search/advanced-search.module').then(m => m.AdvancedSearchModule),
     canActivate: [AuthguardService]
   },
+  {
+    path: 'preferences',
+    loadChildren: () => import('./pages/user/preferences/preferences.module').then(m => m.PreferencesModule),
+    canActivate: [AuthguardService]
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/user/profile/profile.module').then(m => m.ProfileModule),
+    canActivate: [AuthguardService]
+  },
+  {
+    path: 'history',
+    loadChildren: () => import('./pages/user/history/history.module').then(m => m.HistoryModule),
+    canActivate: [AuthguardService]
+  }
 ];
 
 @NgModule({
