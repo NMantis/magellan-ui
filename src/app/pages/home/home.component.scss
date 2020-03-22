@@ -37,7 +37,9 @@
   left: 0;
   outline: 0;
 }
+button::-moz-focus-inner { border: 0; }
 
+.btn:active,.btn:focus{ outline: none }
 .btn:hover {
   transition: 1s ease-in-out;
   background-color: rgb(78, 106, 145);
@@ -56,10 +58,6 @@
     outline: 0;
     svg{ outline: 0;}
   }
-}
-
-.btn:active,.btn:focus{
-  outline:none
 }
 
 .btn-wrapper{
@@ -114,7 +112,6 @@ h4{
     left:0;
     animation: 0.4s ease-out 0s 1 fadeInUp;
   }
-
   .wrapper{
     display:flex;
     flex-direction:column;

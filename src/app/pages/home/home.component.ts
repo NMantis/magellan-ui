@@ -5,6 +5,8 @@ import { simpleFadeIn } from 'src/app/animations';
 import { SearchService } from 'src/app/services/places/search.service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { SheetComponent } from 'src/app/shared/sheet/sheet.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,10 +20,15 @@ export class HomeComponent implements OnInit {
     public searchService: SearchService,
     private matIconRegistry: MatIconRegistry,
     private router: Router,
+    private _bottomSheet: MatBottomSheet,
     private domSanitizer: DomSanitizer) {
     this.matIconRegistry.addSvgIcon(
       `quickSearch`,
       this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/lighting.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+      `user`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/user.svg`)
     );
     this.matIconRegistry.addSvgIcon(
       `search`,
@@ -40,5 +47,9 @@ export class HomeComponent implements OnInit {
           //this.router.navigateByUrl(`recommendations/${resp.id}`)
         })
     }, 4000)
+  }
+
+  openBottomSheet(): void {
+    this._bottomSheet.open(SheetComponent);
   }
 }
