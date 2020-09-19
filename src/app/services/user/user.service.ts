@@ -17,6 +17,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public updateFavorites(userFavorites: any) {
-    return this.http.put<any>(`${this.baseUrl}/api/users/update/favourites`, {favourites:userFavorites}, httpOptions)
+    return this.http.put<any>(`${this.baseUrl}/api/users/update`, { favourites: userFavorites }, httpOptions)
   }
 }
