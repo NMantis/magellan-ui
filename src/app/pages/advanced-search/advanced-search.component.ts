@@ -9,8 +9,8 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./advanced-search.component.scss']
 })
 export class AdvancedSearchComponent implements OnInit, AfterViewInit {
-  @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
-  @ViewChild('addresstext', { static: false }) addresstext: any;
+  @ViewChild('mapContainer') gmap: ElementRef;
+  @ViewChild('addresstext') addresstext: any;
   autocompleteInput: string;
   kmArray: Array<number> = []
   map: google.maps.Map;
@@ -25,6 +25,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   };
   marker = new google.maps.Marker({
     position: this.coordinates,
+      // @ts-ignore
     map: this.map,
   });
   radius: number;
