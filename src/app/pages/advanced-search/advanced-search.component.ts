@@ -7,8 +7,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./advanced-search.component.scss']
 })
 export class AdvancedSearchComponent implements OnInit, AfterViewInit {
-  @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
-  @ViewChild('addresstext', { static: false }) addresstext: any;
+  @ViewChild('mapContainer') gmap: ElementRef;
+  @ViewChild('addresstext') addresstext: any;
   autocompleteInput: string;
   queryWait: boolean;
   kmArray: Array<number> = []
@@ -22,8 +22,10 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
     disableDefaultUI: true
   };
 
+
   marker = new google.maps.Marker({
     position: this.coordinates,
+      // @ts-ignore
     map: this.map,
   });
   constructor(private location: Location) { }

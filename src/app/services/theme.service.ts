@@ -11,7 +11,7 @@ export interface Color {
     providedIn: 'root'
 })
 export class ThemeService {
-    primaryColor = '#00848f';
+    primaryColor = '#0097ff33';
     secondaryColor = '#8f0043';
 
     primaryColorPalette: Color[] = [];
