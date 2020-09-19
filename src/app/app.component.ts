@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from './services/auth-services/auth.service';
 import { Router } from '@angular/router';
+import { ThemeService } from './services/theme.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +12,8 @@ export class AppComponent implements OnInit{
   helper = new JwtHelperService(); 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    protected themeService: ThemeService
   ) { }
 
   ngOnInit(): void {
