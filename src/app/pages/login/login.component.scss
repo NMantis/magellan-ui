@@ -15,7 +15,11 @@
     place-content: center;
     align-items: center
 }
-
+.p0 { padding: 0; }
+.scroll {
+    max-height: 100vh;
+    overflow-y: auto;
+}
 .login-form{
     background: #fff;
     width: 384px;
@@ -96,10 +100,9 @@ mat-form-field{ width:100% }
 .spacing{ margin-top:100px }
 mat-checkbox{ margin:15px; }
 @media screen and (max-width: 600px) {
-    .login-wrapper{ padding: 16px;}
     .login-form{
-        width:90%;
-        margin-left:5%;
+        width:100%;
+        padding: 0 10px;
     }
     .spacing{ margin-top:20px;}
 }
