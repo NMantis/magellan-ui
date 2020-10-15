@@ -1,8 +1,9 @@
 .container {
   top:35%;
-  display:flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   position: absolute;
-  justify-content: space-around;
+  // justify-content: space-around;
   align-items: center;
   flex-wrap:wrap;
   width:100%;

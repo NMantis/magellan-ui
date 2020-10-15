@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
@@ -7,7 +8,15 @@ import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
   styleUrls: ['./sheet.component.scss']
 })
 export class SheetComponent {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<SheetComponent>) {}
+  constructor(
+    private _bottomSheetRef: MatBottomSheetRef<SheetComponent>,
+    private router: Router
+    ) {}
 
   openLink(): void { this._bottomSheetRef.dismiss(); }
+
+  logout() {
+    localStorage.removeItem('access_token')
+    this.router.navigateByUrl('/login')
+  }
 }
