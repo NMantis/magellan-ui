@@ -12,9 +12,10 @@ import { RegisterService } from 'src/app/services/user/register.service';
 })
 export class RegisterComponent implements OnInit {
   userForm: FormGroup;
-  startDate = new Date(1990, 0, 1);
   maxDate = new Date(2011, 0, 1);
-  minDate = new Date(1900, 0, 1);
+  startDate = new Date(2000, 0, 1);
+  minDate = new Date(1921, 0, 1);
+  
   constructor(
     private fb: FormBuilder,
     public registerService: RegisterService,
@@ -30,7 +31,7 @@ export class RegisterComponent implements OnInit {
       username: [null, [Validators.required]],
       firstName: [null, [Validators.required, Validators.pattern('[a-zA-Z α-ωΑ-Ω΄όίήύώέάΆΈΊΌΎΉΏ]{3,16}')]],
       lastName: [null, [Validators.required, Validators.pattern('[a-zA-Z α-ωΑ-Ω΄όίήύώέάΆΈΊΌΎΉΏ]{3,16}')]],
-      dob: [{value: null, disabled: true}, Validators.required],
+      dob: [this.maxDate, Validators.required],
       gender:[null],
       password: [null, [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]

@@ -286,38 +286,6 @@ $swift-linear-duration: 80ms !default;
 $swift-linear-timing-function: linear !default;
 $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default;
 
-
-
-// A collection of mixins and CSS classes that can be used to apply elevation to a material
-// element.
-// See: https://material.io/design/environment/elevation.html
-// Examples:
-//
-//
-// .mat-foo {
-//   @include $mat-elevation(2);
-//
-//   &:active {
-//     @include $mat-elevation(8);
-//   }
-// }
-//
-// <div id="external-card" class="mat-elevation-z2"><p>Some content</p></div>
-//
-// For an explanation of the design behind how elevation is implemented, see the design doc at
-// https://goo.gl/Kq0k9Z.
-
-// Colors for umbra, penumbra, and ambient shadows. As described in the design doc, each elevation
-// level is created using a set of 3 shadow values, one for umbra (the shadow representing the
-// space completely obscured by an object relative to its light source), one for penumbra (the
-// space partially obscured by an object), and one for ambient (the space which contains the object
-// itself). For a further explanation of these terms and their meanings, see
-// https://en.wikipedia.org/wiki/Umbra,_penumbra_and_antumbra.
-
-// Maps for the different shadow sets and their values within each z-space. These values were
-// created by taking a few reference shadow sets created by Google's Designers and interpolating
-// all of the values between them.
-
 @function _get-umbra-map($color, $opacity) {
   $shadow-color: if(type-of($color) == color, rgba($color, $opacity * 0.2), $color);
 

@@ -102,3 +102,13 @@ $app-dark-theme: mat-dark-theme(mat-palette($dynamic-theme-primary), mat-palette
 .dark-theme {
     @include angular-material-theme($app-dark-theme);
 }
+
+
+::-webkit-scrollbar { width: 6px; height: 3px;}
+::-webkit-scrollbar-button { display: none }
+::-webkit-scrollbar-track {  background-color:#B9B9B9;}
+::-webkit-scrollbar-track-piece { background-color: #fff;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #B9B9B9; border-radius: 36px;}
+::-webkit-scrollbar-corner { background-color: #B9B9B9;}
+::-webkit-resizer { background-color: #4A4A4A;}
+

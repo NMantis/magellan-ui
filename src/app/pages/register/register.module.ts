@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/modules/material.module';
@@ -19,6 +19,7 @@ const routes: Routes = [{
     MatNativeDateModule,
     RouterModule.forChild(routes)
   ],
+  providers: [ { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   exports: [RegisterComponent]
 })
 export class RegisterModule { }

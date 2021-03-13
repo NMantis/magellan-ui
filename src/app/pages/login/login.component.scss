@@ -96,6 +96,11 @@ a{
     margin: 16px auto;
     display: block;
 }
+
+.date-input, .date-input input {
+    cursor: pointer;
+}
+
 mat-form-field{ width:100% }
 .spacing{ margin-top:100px }
 mat-checkbox{ margin:15px; }

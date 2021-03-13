@@ -50,9 +50,9 @@
                     <mat-error *ngIf="userForm.controls['lastName'].hasError('pattern')">Invalid Pattern.</mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline">
+                <mat-form-field class="date-input" appearance="outline"  (click)="dp.open()">
                     <mat-label>Date of Birth</mat-label>
-                    <input matInput [matDatepicker]="dp" [min]="startDate" [max]="maxDate" formControlName="dob">
+                    <input matInput [matDatepicker]="dp" [max]="maxDate" formControlName="dob" readonly>
                     <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
                     <mat-datepicker #dp disabled="false" [startAt]="startDate"></mat-datepicker>
                 </mat-form-field>
