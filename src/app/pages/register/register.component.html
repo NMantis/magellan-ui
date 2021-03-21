@@ -65,7 +65,14 @@
                         <mat-option [value]="'other'">Other</mat-option>
                     </mat-select>
                 </mat-form-field>
+
                 <button class="submit" mat-raised-button [disabled]="userForm.invalid">Register</button>
+
+                <div class="actions">
+                    <a routerLink="/login" style="margin: auto; padding: 16px;"> Back </a>
+                </div>
+
+
             </form>
         </div>
     </div>

@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl: 'http://localhost:8000',
+  apiUrl: 'https://magellan-backend.herokuapp.com',
   production: false
 };

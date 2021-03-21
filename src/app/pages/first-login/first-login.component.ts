@@ -18,10 +18,12 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
   bar = [];
   cafe = [];
   favorites = [];
+  
   constructor(
     public placeService: PlaceService,
     public userService: UserService,
-    private router: Router) { }
+    private router: Router
+    ) { }
 
   ngAfterViewInit(): void { window.scroll(0,0) }
   
@@ -39,9 +41,9 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
             if (place.types.includes('food'))
               this.food.push(place);
             else if (place.types.includes('bar'))
-              this.bar.push(place)
+              this.bar.push(place);
             else if (places.types.includes('cafe'))
-              this.cafe.push(place)
+              this.cafe.push(place);
         })
 
       })
@@ -52,11 +54,11 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
       this.filteredPlaces = this.filteredPlaces.filter(p => p.types.includes(checkbox.source.name))
     else 
       if(checkbox.source.name == 'bar')
-        this.filteredPlaces = this.food.concat(this.cafe)
+        this.filteredPlaces = this.food.concat(this.cafe);
       else if (checkbox.source.name == 'cafe')
-        this.filteredPlaces = this.food.concat(this.bar)
+        this.filteredPlaces = this.food.concat(this.bar);
       else
-        this.filteredPlaces = this.cafe.concat(this.bar)
+        this.filteredPlaces = this.cafe.concat(this.bar);
   }
 
   updateFavorites(){
@@ -67,12 +69,14 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
   saveRatings(userRating) {
     let alreadyExists: boolean = false;
     this.favorites.forEach(place => {
+
       if(place.placeId == userRating.placeId){
         place.rating = userRating.rating;
-        alreadyExists = true
+        alreadyExists = true;
       }
     })
-    if(!alreadyExists)
+
+    if(! alreadyExists)
       this.favorites.push(userRating)
   }
 }
