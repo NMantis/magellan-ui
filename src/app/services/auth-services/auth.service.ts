@@ -36,10 +36,12 @@ export class AuthService {
 
     return signin.pipe(
         tap(resp => {
+
           if(resp.accessToken){
-            localStorage.setItem('access_token', resp.accessToken)
+            localStorage.setItem('access_token', resp.accessToken);
             AuthService.isLoggedIn = true;
           }
+
         }),
         mergeMap(() => firstLogin))
   }

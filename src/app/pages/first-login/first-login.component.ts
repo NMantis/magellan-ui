@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { list, places } from 'src/app/animations';
+import { Favorite } from 'src/app/models/DTOs/Favorites';
 import { PlaceService } from 'src/app/services/places/place.service';
 import { UserService } from 'src/app/services/user/user.service';
 @Component({
@@ -17,8 +18,8 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
   food = [];
   bar = [];
   cafe = [];
-  favorites = [];
-  
+  favorites: Favorite[] = [];
+
   constructor(
     public placeService: PlaceService,
     public userService: UserService,
@@ -30,10 +31,12 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
   ngOnInit() {
     this.placeService.getAllPlaces()
       .subscribe(places => {
+
         places.map(place => {
           delete place.rating
           return place;
         })
+
         this.filteredPlaces = places;
 
         places.forEach(place => {
@@ -66,7 +69,7 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
       .subscribe(()=> this.router.navigateByUrl(''))
   }
 
-  saveRatings(userRating) {
+  saveRatings(userRating: Favorite) {
     let alreadyExists: boolean = false;
     this.favorites.forEach(place => {
 
