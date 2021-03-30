@@ -34,17 +34,21 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   price: string;
   plc: any;
   loading: boolean;
+
   constructor(
     private location: Location,
     public searchService: SearchService,
-    private router: Router) { }
-  ngOnInit() { for (let i = 1; i <= 14; this.kmArray.push(i++)) { } }
+    private router: Router
+  ) { }
+
+  ngOnInit() { 
+    for (let i = 1; i <= 14; this.kmArray.push(i++)) { } 
+  }
+
   ngAfterViewInit() {
     this.mapInitializer();
     this.getPlaceAutocomplete();
   }
-
-  goBack() { this.location.back(); }
 
   private getPlaceAutocomplete() {
     const autocomplete = new google.maps.places.Autocomplete(
@@ -63,6 +67,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
       this.mapInitializer()
     });
   }
+  
   mapInitializer() {
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
     this.marker.setMap(this.map);
@@ -88,8 +93,9 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
     this.chosenRadius.bindTo('center', this.marker, 'position');
   }
 
+
   search() {
-    this.loading = true
+    this.loading = true;
 
     setTimeout(() => {
       const preferences = {
@@ -109,4 +115,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
         })
     }, 4000)
   }
+
+  goBack() { this.location.back(); }
+
 }

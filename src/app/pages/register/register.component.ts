@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    let user = this.userForm.getRawValue()
+    let user = this.userForm.getRawValue();
     this.registerService.register(user)
     .subscribe(()=> this.router.navigateByUrl('/login'))
   }

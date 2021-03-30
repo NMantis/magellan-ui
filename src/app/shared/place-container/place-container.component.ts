@@ -8,11 +8,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class PlaceContainerComponent implements OnInit {
   @Input() readonly: boolean;
   @Input() place: any;
-  @Output() userRating = new EventEmitter<any>()
+  @Output() userRating = new EventEmitter<number>();
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   get hasFood() {
     return this.place.types.includes('food')
@@ -23,7 +23,8 @@ export class PlaceContainerComponent implements OnInit {
   get hasCoffee() {
     return this.place.types.includes('cafe')
   }
-  ratingComponentClick(rating): void {
+
+  ratingComponentClick(rating: number): void {
     this.userRating.emit(rating)
   }
 

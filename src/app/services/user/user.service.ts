@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Place } from 'src/app/models/Places/Place';
+import { Favorite } from 'src/app/models/Users/Favorite';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,12 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public updateFavorites(favourites: any) {
-    return this.http.put<any>(`${this.baseUrl}/api/users/update`, { favourites })
+  public favorites(slim?: boolean): Observable<Favorite[] | Place[]> {
+    // Query Param slim=slim/full;
+    return this.http.get<any>(`${this.baseUrl}/api/users/update`)
+  }
+
+  public updateFavorites(favourites: Favorite[]): Observable<void> {
+    return this.http.put<void>(`${this.baseUrl}/api/users/update`, { favourites })
   }
 }

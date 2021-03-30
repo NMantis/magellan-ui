@@ -13,7 +13,7 @@ export class SheetComponent {
     private _bottomSheetRef: MatBottomSheetRef<SheetComponent>,
     private router: Router,
     private auth: AuthService
-    ) {}
+  ) {}
 
   openLink(): void { 
     this._bottomSheetRef.dismiss();

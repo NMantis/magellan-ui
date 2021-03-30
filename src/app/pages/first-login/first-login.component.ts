@@ -1,16 +1,17 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { list, places } from 'src/app/animations';
-import { Favorite } from 'src/app/models/DTOs/Favorites';
+import { Filters } from 'src/app/models/Filters';
+import { Favorite } from 'src/app/models/Users/Favorite';
 import { PlaceService } from 'src/app/services/places/place.service';
 import { UserService } from 'src/app/services/user/user.service';
 @Component({
   selector: 'app-first-login',
   templateUrl: './first-login.component.html',
   styleUrls: ['./first-login.component.scss'],
-  animations: [ list, places ]
+  animations: [list, places]
 })
-export class FirstLoginComponent implements OnInit,AfterViewInit {
+export class FirstLoginComponent implements OnInit, AfterViewInit {
   places: any;
   allPlaces: any;
   filteredPlaces: any;
@@ -24,18 +25,15 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
     public placeService: PlaceService,
     public userService: UserService,
     private router: Router
-    ) { }
+  ) { }
 
-  ngAfterViewInit(): void { window.scroll(0,0) }
-  
+  ngAfterViewInit(): void { window.scroll(0, 0) }
+
   ngOnInit() {
-    this.placeService.getAllPlaces()
+    this.placeService.getAllPlaces(new Filters())
       .subscribe(places => {
 
-        places.map(place => {
-          delete place.rating
-          return place;
-        })
+        places.map(place => ({ ...place, 'rating': undefined }))
 
         this.filteredPlaces = places;
 
@@ -45,7 +43,7 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
               this.food.push(place);
             else if (place.types.includes('bar'))
               this.bar.push(place);
-            else if (places.types.includes('cafe'))
+            else if (place.types.includes('cafe'))
               this.cafe.push(place);
         })
 
@@ -55,8 +53,8 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
   filter(checkbox) {
     if (checkbox.checked)
       this.filteredPlaces = this.filteredPlaces.filter(p => p.types.includes(checkbox.source.name))
-    else 
-      if(checkbox.source.name == 'bar')
+    else
+      if (checkbox.source.name == 'bar')
         this.filteredPlaces = this.food.concat(this.cafe);
       else if (checkbox.source.name == 'cafe')
         this.filteredPlaces = this.food.concat(this.bar);
@@ -64,22 +62,22 @@ export class FirstLoginComponent implements OnInit,AfterViewInit {
         this.filteredPlaces = this.cafe.concat(this.bar);
   }
 
-  updateFavorites(){
+  updateFavorites() {
     this.userService.updateFavorites(this.favorites)
-      .subscribe(()=> this.router.navigateByUrl(''))
+      .subscribe(() => this.router.navigateByUrl(''))
   }
 
   saveRatings(userRating: Favorite) {
     let alreadyExists: boolean = false;
     this.favorites.forEach(place => {
 
-      if(place.placeId == userRating.placeId){
+      if (place.placeId == userRating.placeId) {
         place.rating = userRating.rating;
         alreadyExists = true;
       }
     })
 
-    if(! alreadyExists)
+    if (!alreadyExists)
       this.favorites.push(userRating)
   }
 }

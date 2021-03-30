@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  })
-};
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Place } from 'src/app/models/Places/Place';
+import { Filters } from 'src/app/models/Filters';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,11 +12,12 @@ export class PlaceService {
   private baseUrl = environment.apiUrl
   constructor(private http: HttpClient) { }
 
-  getAllPlaces() {
-    return this.http.get<any>(`${this.baseUrl}/api/places/all`)
+  getAllPlaces(filters: Filters): Observable<Place[]> {
+    const params = filters.toParams();
+    return this.http.get<Place[]>(`${this.baseUrl}/api/places/all`, { params });
   }
 
   getRecommendations(id: string) {
-    return this.http.get<any>(`${this.baseUrl}/api/places/all`)
+    return this.http.get<Place>(`${this.baseUrl}/api/places/all`)
   }
 }

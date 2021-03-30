@@ -9,7 +9,9 @@ import { ThemeService } from './services/theme.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+  
   helper = new JwtHelperService(); 
+
   constructor(
     private authService: AuthService,
     private router: Router,

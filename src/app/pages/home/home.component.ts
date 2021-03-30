@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { SheetComponent } from 'src/app/shared/sheet/sheet.component';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,12 +17,14 @@ import { SheetComponent } from 'src/app/shared/sheet/sheet.component';
 export class HomeComponent implements OnInit {
   show: boolean;
   loading: boolean;
+  
   constructor(
     public searchService: SearchService,
     private matIconRegistry: MatIconRegistry,
     private router: Router,
     private _bottomSheet: MatBottomSheet,
-    private domSanitizer: DomSanitizer) {
+    private domSanitizer: DomSanitizer
+  ) {
     this.matIconRegistry.addSvgIcon(
       `quickSearch`,
       this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/lighting.svg`)
@@ -36,7 +39,9 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  ngOnInit() { setTimeout(() => this.show = true, 1400) }
+  ngOnInit() { 
+    setTimeout(() => this.show = true, 1400);
+  }
 
   quickSearch() {
     this.loading = true
