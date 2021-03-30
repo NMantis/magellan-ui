@@ -72,6 +72,7 @@ a{
     text-decoration: none;
     background-color: transparent;
 }
+
 .submit{
     color: #fff;
     background: #2196f3;
@@ -105,6 +106,7 @@ a{
 mat-form-field{ width:100% }
 // .spacing{ margin-top:100px }
 mat-checkbox{ margin:15px; }
+
 @media screen and (max-width: 600px) {
     .login-form{
         width:100%;

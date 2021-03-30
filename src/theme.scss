@@ -1,0 +1,87 @@
+
+@import "~@angular/material/theming";
+@import "src/app/styles/colors";
+@import "src/app/styles/variables";
+
+@include mat-core();
+$angular-primary: mat-palette($mat-blue, 700, 200, A400);
+$angular-accent: mat-palette($mat-cyan, 400, 600, A700);
+$angular-warn: mat-palette($mat-red, 900);
+$angular-default-theme: mat-light-theme(
+  (
+    color: (
+      primary: $angular-primary,
+      accent: $angular-accent,
+      warn: $angular-warn,
+    ),
+  )
+);
+@include angular-material-theme($angular-default-theme);
+
+/* Dark Theme */
+$angular-dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $angular-primary,
+      accent: $angular-accent,
+      warn: $angular-warn,
+    ),
+  )
+);
+
+.darkMode {
+  @include angular-material-color($angular-dark-theme);
+}
+
+
+.mat-h1, .mat-headline, .mat-typography h1{
+  font-weight: 400;
+  font-size: 48px;
+}
+
+.mat-h2, .mat-headline, .mat-typography h2{
+  font-weight: 400;
+  font-size: 36px;
+}
+
+.mat-h3, .mat-headline, .mat-typography h3{
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.mat-h4, .mat-headline, .mat-typography h4{
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.mat-h5, .mat-headline, .mat-typography h5{
+  font-weight: 400;
+  font-size: 21px;
+}
+
+.mat-h6, .mat-headline, .mat-typography h6{
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.mat-body p, .mat-body-1 p, .mat-typography p {
+  margin-bottom: 16px;
+  line-height: normal;
+}
+
+.mat-form-field-underline {
+  display: none;
+}
+
+.mat-icon {
+  padding-right: 3px;
+  padding-bottom: 5px;
+}
+
+::-webkit-scrollbar { width: 6px; height: 3px;}
+::-webkit-scrollbar-button { display: none }
+::-webkit-scrollbar-track {  background-color: $scrollbar-track-color;}
+::-webkit-scrollbar-track-piece { background-color: $scrollbar-track-piece-color;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: $light-grey; border-radius: 36px;}
+::-webkit-scrollbar-corner { background-color: $scrollbar-corner-color;}
+::-webkit-resizer { background-color: $dark-grey;}

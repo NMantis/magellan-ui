@@ -41,7 +41,12 @@ h3{
 *, ::after, ::before {
     box-sizing: border-box;
 }
-.is-open{ padding: 2px; }
+
+.is-open { 
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
 .open{ color:#00bc8b;background:#d1eedd; }
 .closed{background-color: #fff5f3;color:#ed2e2e;}
 .vicinity{ 

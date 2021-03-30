@@ -6,14 +6,14 @@
             </div>
             <span class="title">LOGIN TO YOUR ACCOUNT</span>
             <form [formGroup]="loginForm" novalidate (ngSubmit)="login()">
-                <mat-form-field>
+                <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <input matInput type="email" formControlName="email">
                     <mat-icon matSuffix>mail</mat-icon>
                     <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email is <strong>required</strong>.</mat-error>
                     <mat-error *ngIf="loginForm.controls['email'].hasError('email')">Not a valid e-mail address.</mat-error>
                 </mat-form-field>
-                <mat-form-field>
+                <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput type="password" formControlName="password">
                     <mat-icon matSuffix>vpn_key</mat-icon>
