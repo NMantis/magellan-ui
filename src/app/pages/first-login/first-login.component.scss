@@ -1,33 +1,68 @@
-.container{
-    margin-left:15%;
-    width:70%;
-    margin-top:15vh;
+.container {
+    width: 100%;
+    max-width: 920px;
+    margin: auto;
+    margin-top: 158px;
     height: 85vh;
+
 }
-.wrapper{  box-sizing: border-box; }
-.header {
-    top: 0;
-    left: 13%;
-    right: 14%;
-    height: 16vh;
+
+.wrapper {  
+    box-sizing: border-box; 
+}
+
+.header-container {
+    width: 100%;
     z-index: 3;
     position: absolute;
+    top: 0;
+    min-height: 140px;
+    max-height: 160px;
+}
+
+.header {
+    width: 100%;
+    margin: auto;
+    max-width: 980px;
     background: linear-gradient(to right bottom, #080a0d, #24292b, #3f4848, #606964, #878b80);
-    border-radius: 0px 0px 10px 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    align-items: center;
-    mat-checkbox{ z-index:4; color:white}
+    border-radius: 0px 0px 5px 5px;
+    padding: 1em 1.5em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     min-height:90px;
 
-    .btn{
-
-        margin:auto;
-
+    mat-checkbox { 
+        z-index: 4; 
+        color: #fff;
     }
 }
 
-.title{ color: #fff; }
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding: 12px;
+}
+
+.title{ 
+    color: #fff;
+    max-width: 60%;
+}
+
+.btn-wrapper {
+    width: 100%;
+    padding-bottom: 18px;
+    padding-top: 12px;
+    display: flex;
+    justify-content: center;
+    button {
+        color: #fff;
+    }
+}
+
 .save-btn {
     margin-top: 15px;
     color: #fff;
@@ -40,7 +75,7 @@
 }
 
 @media screen and (max-width: 830px) {
-    .header {
+    .header-container {
         left:0;
         right: 0;
         width:100%;

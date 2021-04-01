@@ -1,26 +1,50 @@
 <div class="wrapper">
 
-    <div class="header mat-elevation-z2">
+    <div class="header-container">
 
-        <div style="display:flex;flex-direction: column;padding: 0 15px;">
-            <div *ngFor="let type of types">
-                <mat-checkbox (change)="filter($event)" [name]="type">{{type | titlecase}}</mat-checkbox>
+
+        <div class="header mat-elevation-z2">
+
+            <div class="row">
+                <span class="title">Help us make better recommendations by rating at least 5 of the below places.</span>
+
+                <div class="btn">
+                    <button mat-flat-button class="save-btn" (click)="updateFavorites()"
+                        [disabled]="favorites.length < 5">Save Preferences</button>
+                </div>
             </div>
+
+            <div class="row" [formGroup]="form">
+                <div *ngFor="let type of ['food', 'bar', 'cafe']">
+                    <mat-checkbox [formControlName]="type" value="true">{{type | titlecase}}</mat-checkbox>
+                </div>
+            </div>
+
+            <ng-container *ngIf="loading; else hidden">
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </ng-container>
+    
+            <ng-template #hidden>
+                <div class="height: 4px; visibility: hidden"></div>
+            </ng-template>
+
         </div>
-
-        <span class="title">Help us make better recommendations by rating at least 5 of the below places.</span>
-
-        <div class="btn">
-            <button mat-flat-button class="save-btn" (click)="updateFavorites()" [disabled]="favorites.length < 5">Save Preferences</button>
-        </div>
-
 
     </div>
-    <div class="container" @list *ngIf="filteredPlaces">
-        <table style="width:100%">
-            <tr *ngFor="let place of filteredPlaces" @places>
-                <app-place-container [place]="place" [readonly]="false" (userRating)="saveRatings($event)"></app-place-container>
+
+    <div class="container" @list>
+
+        <table style="width:100%" *ngIf="places.length > 1">
+            <tr *ngFor="let place of places" @places>
+                <app-place-container [place]="place" [readonly]="false" (userRating)="saveRatings($event)">
+                </app-place-container>
             </tr>
         </table>
+
+        <div class="btn-wrapper" *ngIf="places.length && hasResults">
+            <button mat-button (click)="load()" [disabled]="loading">Load More</button>
+        </div>
+
     </div>
+
 </div>

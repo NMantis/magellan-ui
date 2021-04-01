@@ -1,6 +1,7 @@
 h3{ 
     border-bottom:1px solid rgba(0,0,0,0.4);
     font-size: 24px; 
+    margin: 12px;
 }
 
 .icon-info {
@@ -27,7 +28,7 @@ h3{
     flex-wrap:wrap;
 }
 .wrapper{
-    padding: 1.5rem !important;
+    padding: 14px;
     position: relative !important;
     display: flex !important;
     flex-direction: column;

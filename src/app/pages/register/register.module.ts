@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from 'src/app/modules/material.module';
+import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { RegisterComponent } from './register.component';
 
 const routes: Routes = [{
@@ -14,7 +13,6 @@ const routes: Routes = [{
   declarations: [RegisterComponent],
   imports: [
     SharedModule,
-    ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     RouterModule.forChild(routes)

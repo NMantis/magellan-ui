@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from 'src/app/modules/material.module';
+import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { ProfileComponent } from './profile.component';
 
 const routes: Routes = [{

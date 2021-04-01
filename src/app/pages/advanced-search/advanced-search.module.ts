@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from 'src/app/modules/material.module';
+import { SharedModule } from 'src/app/shared/modules/shared.module';
+
 import { LoadingModule } from 'src/app/shared/loading/loading.module';
 import { AdvancedSearchComponent } from './advanced-search.component';
 
@@ -12,7 +12,6 @@ const routes: Routes = [
   declarations: [AdvancedSearchComponent],
   imports: [
     SharedModule,
-    FormsModule,
     RouterModule.forChild(routes),
     LoadingModule
   ],

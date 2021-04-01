@@ -9,6 +9,7 @@ import { AuthInterceptor } from './services/auth-services/auth-interceptor';
 import { LoginModule } from './pages/login/login.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeModule } from './pages/home/home.module';
+
 @NgModule({
   declarations: [
     AppComponent

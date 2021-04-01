@@ -23,7 +23,7 @@ export const fadeIn = [
 export const list = [
     trigger('list', [
         transition(':enter', [
-          query('@places', stagger(100, animateChild()))
+          query('@places', stagger(100, animateChild()), { optional: true } )
         ]),
       ])
 

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from 'src/app/modules/material.module';
+import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { RatingsModule } from 'src/app/shared/ratings/ratings.module';
 import { PlaceContainerComponent } from './place-container.component';
 
