@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 
 export class Filters {
-    pageNo: number = 1;
+    pageNo: number = 0;
     pageSize: number = 20;
     types: string[];
 
@@ -13,7 +13,8 @@ export class Filters {
         let params = new HttpParams();
 
         Object.keys(this).forEach(key => {
-            if (this[key]) {
+
+            if (this[key] != undefined) {
                 if (Array.isArray(this[key])) {
                     params = this[key].reduce((params, id) => params.append(`${key}`, String(id)), params);
                 } else

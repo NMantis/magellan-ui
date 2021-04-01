@@ -1,0 +1,103 @@
+.container {
+    width: 100%;
+    max-width: 920px;
+    margin: auto;
+    margin-top: 158px;
+    height: 85vh;
+
+}
+
+.wrapper {  
+    box-sizing: border-box; 
+}
+
+.header-container {
+    width: 100%;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    min-height: 140px;
+    max-height: 160px;
+}
+
+.header {
+    width: 100%;
+    margin: auto;
+    max-width: 980px;
+    background: linear-gradient(to right bottom, #080a0d, #24292b, #3f4848, #606964, #878b80);
+    border-radius: 0px 0px 5px 5px;
+    padding: 1em 1.5em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height:90px;
+
+    mat-checkbox { 
+        z-index: 4; 
+        color: #fff;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding: 12px;
+}
+
+.title{ 
+    color: #fff;
+    max-width: 60%;
+}
+
+.btn-wrapper {
+    width: 100%;
+    padding-bottom: 18px;
+    padding-top: 12px;
+    display: flex;
+    justify-content: center;
+    button {
+        color: #fff;
+    }
+}
+
+.save-btn {
+    margin-top: 15px;
+    color: #fff;
+    background: #2196f3;
+    align-self: center;
+}
+::ng-deep .mat-checkbox-frame {
+    border-color: white;
+    background-color: #fff!important;
+}
+
+@media screen and (max-width: 830px) {
+    .header-container {
+        left:0;
+        right: 0;
+        width:100%;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .header .btn{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        right: 0;
+        button { 
+            width: 100%; 
+            padding: 15px 10px;
+        } 
+
+        button:disabled{
+            background: #2196f3;
+            color: rgba(0,0,0,0.4);
+            cursor: not-allowed;
+        }
+    }
+}
