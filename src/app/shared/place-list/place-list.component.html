@@ -14,14 +14,16 @@
 
             <div class="btn">
                 <button mat-flat-button class="save-btn" (click)="updateFavorites()"
-                    [disabled]="firstLogin && favorites.length < 5">Save Preferences</button>
+                    [disabled]="firstLogin && updatedFavorites.length < 5">Save Preferences</button>
             </div>
         </div>
 
         <div class="row" [formGroup]="form">
-            <button mat-icon-button type="button" routerLink="/">
+
+            <button mat-icon-button type="button" routerLink="/" *ngIf="!firstLogin">
                 <mat-icon style="color: #fff">home</mat-icon>
             </button>
+
             <div *ngFor="let type of ['food', 'bar', 'cafe']">
                 <mat-checkbox [formControlName]="type" value="true">{{type | titlecase}}</mat-checkbox>
             </div>

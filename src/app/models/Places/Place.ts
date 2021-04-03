@@ -2,6 +2,7 @@ import { Geometry } from "./Geometry";
 
 export class Place {
     id: string;
+    placeId: string;
     opening_hours: string;
     name: string;
     rating: number;

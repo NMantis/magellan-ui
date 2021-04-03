@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { tap, mergeMap } from 'rxjs/operators';
+import { tap, mergeMap, map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -31,19 +31,20 @@ export class AuthService {
   ) { }
 
   public login(usernameOrEmail: string, password: string) {
-    const signin = this.http.post<any>(this.baseUrl + '/api/auth/signin', { usernameOrEmail, password }, httpOptions)
-    const firstLogin = this.http.get<boolean>(`${this.baseUrl}/api/users/first`)
+    const signin = this.http.post<any>(this.baseUrl + '/api/auth/signin', { usernameOrEmail, password }, httpOptions);
+    const firstLogin = this.http.get<{ firstLogin: boolean }>(`${this.baseUrl}/api/users/first`)
+      .pipe(map(resp => resp.firstLogin));
 
     return signin.pipe(
-        tap(resp => {
+      tap(resp => {
 
-          if(resp.accessToken){
-            localStorage.setItem('access_token', resp.accessToken);
-            AuthService.isLoggedIn = true;
-          }
+        if (resp.accessToken) {
+          localStorage.setItem('access_token', resp.accessToken);
+          AuthService.isLoggedIn = true;
+        }
 
-        }),
-        mergeMap(() => firstLogin))
+      }),
+      mergeMap(() => firstLogin))
   }
 
   public loginStatusUpdate() {

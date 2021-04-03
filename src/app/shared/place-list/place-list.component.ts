@@ -20,6 +20,7 @@ export class PlaceListComponent implements OnInit, OnChanges, AfterViewInit, OnD
   @Input() firstLogin: boolean;
   @Input() favorites: Favorite[] = [];
 
+  updatedFavorites: Favorite[] = [];
   places: Place[] = [];
   loading: boolean = true;
   hasResults: boolean = true;
@@ -77,6 +78,9 @@ export class PlaceListComponent implements OnInit, OnChanges, AfterViewInit, OnD
   }
 
   loadPlaces(data: Place[]) {
+    if(this.favorites) {
+      data.map(place => ({ ...place, 'rating': this.mapRatings(place.placeId) }))
+    }
     this.places = this.places.concat(data);
   }
 
@@ -91,13 +95,13 @@ export class PlaceListComponent implements OnInit, OnChanges, AfterViewInit, OnD
 
   updateFavorites() {
     this.userService
-      .updateFavorites(this.favorites)
+      .updateFavorites(this.updatedFavorites)
       .subscribe(() => this.router.navigateByUrl('', { replaceUrl: true }))
   }
 
   saveRatings(userRating: Favorite) {
     let alreadyExists: boolean = false;
-    this.favorites.forEach(place => {
+    this.updatedFavorites.forEach(place => {
 
       if (place.placeId == userRating.placeId) {
         place.rating = userRating.rating;
@@ -106,7 +110,11 @@ export class PlaceListComponent implements OnInit, OnChanges, AfterViewInit, OnD
     })
 
     if (!alreadyExists)
-      this.favorites.push(userRating)
+      this.updatedFavorites.push(userRating)
+  }
+
+  mapRatings(placeId: string) {
+    return this.favorites.find(f => f.placeId == placeId)?.rating;
   }
 
   ngOnDestroy(): void {
