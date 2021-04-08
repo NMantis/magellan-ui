@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil, map, tap, auditTime, switchMap, finalize, filter } from 'rxjs/operators';
@@ -20,7 +21,7 @@ export class PlaceListComponent implements OnInit, OnChanges, AfterViewInit, OnD
   @Input() firstLogin: boolean;
   @Input() favorites: Favorite[] = [];
 
-  updatedFavorites: Favorite[] = [];
+  updatedFavorites: Favorite[];
   places: Place[] = [];
   loading: boolean = true;
   hasResults: boolean = true;
@@ -37,19 +38,22 @@ export class PlaceListComponent implements OnInit, OnChanges, AfterViewInit, OnD
   constructor(
     public placeService: PlaceService,
     public userService: UserService,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
   ) { }
 
   ngAfterViewInit(): void { window.scroll(0, 0) }
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes?.favorites) {
+    if (changes?.favorites) {
       this.favorites = changes.favorites.currentValue;
     }
   }
 
   ngOnInit() {
+
+    this.updatedFavorites = this.favorites?.slice() || []; 
 
     this.form.valueChanges
       .pipe(
@@ -60,7 +64,7 @@ export class PlaceListComponent implements OnInit, OnChanges, AfterViewInit, OnD
         const filters = new Filters({ types: types });
         this.places = [];
         this.filters$.next(filters);
-        
+
       });
 
     this.filters$.pipe(
@@ -78,9 +82,15 @@ export class PlaceListComponent implements OnInit, OnChanges, AfterViewInit, OnD
   }
 
   loadPlaces(data: Place[]) {
-    if(this.favorites) {
-      data.map(place => ({ ...place, 'rating': this.mapRatings(place.placeId) }))
+    if (this.favorites) {
+
+      data.map(place => {
+        place.rating = this.favorites.find(f => f.placeId == place.id)?.rating;
+        return place;
+      })
+
     }
+
     this.places = this.places.concat(data);
   }
 
@@ -96,25 +106,34 @@ export class PlaceListComponent implements OnInit, OnChanges, AfterViewInit, OnD
   updateFavorites() {
     this.userService
       .updateFavorites(this.updatedFavorites)
-      .subscribe(() => this.router.navigateByUrl('', { replaceUrl: true }))
+      .subscribe(() => {
+
+        if(! this.favorites.length) { // in first-login
+          this.router.navigateByUrl('', { replaceUrl: true })
+        } else { // in user preferences
+
+          this.snackbar.open('Preferences Updated!', '', {
+            panelClass: 'success'
+          });
+        }
+
+      })
   }
 
   saveRatings(userRating: Favorite) {
     let alreadyExists: boolean = false;
+
     this.updatedFavorites.forEach(place => {
 
       if (place.placeId == userRating.placeId) {
         place.rating = userRating.rating;
         alreadyExists = true;
       }
+
     })
 
     if (!alreadyExists)
       this.updatedFavorites.push(userRating)
-  }
-
-  mapRatings(placeId: string) {
-    return this.favorites.find(f => f.placeId == placeId)?.rating;
   }
 
   ngOnDestroy(): void {

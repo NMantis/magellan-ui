@@ -1,2 +1,3 @@
-
-<place-list [favorites]="favorites"></place-list>
+<ng-container *ngIf="favorites">
+    <place-list [favorites]="favorites"></place-list>
+</ng-container>

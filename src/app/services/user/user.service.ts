@@ -14,7 +14,7 @@ export class UserService {
 
   public favorites(slim?: boolean): Observable<Favorite[]> {
     // Query Param slim=slim/full;
-    return this.http.get<any>(`${this.baseUrl}/api/users/favorites`);
+    return this.http.get<any>(`${this.baseUrl}/api/users/favourites`);
   }
 
   public updateFavorites(favourites: Favorite[]): Observable<void> {
