@@ -30,7 +30,7 @@
             </ng-template>
         </div>
 
-        <app-ratings [rating]='place.rating' [placeId]='place.id' [readonly]="readonly"
+        <app-ratings [rating]='place.rating' [placeId]='place.id' [name]="place.name" [readonly]="readonly"
             (ratingClick)='ratingComponentClick($event)'></app-ratings>
 
     </div>

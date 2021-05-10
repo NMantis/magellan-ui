@@ -39,7 +39,7 @@ export class AuthInterceptor implements HttpInterceptor{
            // else if(error.status == 500) this.router.navigateByUrl('/internal-server-error')
             else errorMessage = `${error.message}`;
         }
-        console.log(errorMessage)
+       
         this._snackBar.open('Something bad happened. Try again later.', 'Ok', {
             duration: 3000,
             verticalPosition: 'top',
