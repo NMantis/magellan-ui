@@ -16,22 +16,3 @@ $scrollbar-track-piece-color: $white;
 $scrollbar-thumb-color: $light-grey;
 $scrollbar-corner-color: $light-grey;
 
-//== Footer
-
-$footer-height: 48px;
-$footer-width: calc(100% - #{$sidebar-content-padding});
-$footer-link-color: $blue;
-$footer-icon-color: $gray-06;
-$footer-icon-background-color-hover: $black-08;
-
-//== Sidebar
-
-$sidebar-width: 20px;
-$sidebar-font-color: $gray-08;
-$sidebar-font-color-active: $blue;
-$sidebar-background-color-active: $blue-white;
-$sidebar-background-color-hover: $blue-white;
-$sidebar-icon-color-active: $blue;
-$sidebar-icon-color: $gray-06;
-$sidebar-title-color: $sidebar-font-color;
-$sidebar-circle-color: $light-grey;
