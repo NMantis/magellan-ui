@@ -1,13 +1,13 @@
 @import "src/app/styles/colors";
 
-.wrapper{  box-sizing: border-box; }
-.container{
-    margin-left:15%;
-    width:70%;
-    margin-top:15vh;
-    height: 85vh;
+.wrapper{ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex: 1;
 }
-
 
 .center {
     position: absolute;
@@ -36,17 +36,12 @@
     position: absolute;
     width: 250px;
     height: 100%;
-    background: linear-gradient(#dE685E, #EE786E);
+    background: linear-gradient(0deg, rgba(0, 151, 255, 1), #314156);
     transition: width 0.4s;
     overflow: hidden;
     z-index: 2;
   }
-  
-  .card.green .additional {
-    background: linear-gradient(#92bCa6, #A2CCB6);
-  }
-  
-  
+
   .card:hover .additional {
     width: 100%;
     border-radius: 0 5px 5px 0;
@@ -88,7 +83,6 @@
     font-size: 32px;
     height: 38px;
     width: 64px;
-    color: $blue;
     border-radius: 50%;
     background: #fff;
   }
@@ -119,25 +113,37 @@
   
   .card .additional .more-info h1 {
     color: #fff;
-    margin-bottom: 0;
+    cursor: pointer;
   }
   
-  .card.green .additional .more-info h1 {
-    color: #224C36;
+
+  h4, h6 {
+    margin: 1px 0 4px 0;
   }
-  
+
   .card .additional .coords {
     margin: 0 1rem;
     color: #fff;
     font-size: 1rem;
-  }
-  
-  .card.green .additional .coords {
-    color: #325C46;
-  }
-  
-  .card .additional .coords span + span {
-    float: right;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .user-rating {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
   }
   
   .card .additional .stats {
@@ -150,11 +156,7 @@
     top: auto;
     color: #fff;
   }
-  
-  .card.green .additional .stats {
-    color: #325C46;
-  }
-  
+
   .card .additional .stats > div {
     flex: 1;
     text-align: center;
@@ -197,5 +199,17 @@
     bottom: 1rem;
     right: 1rem;
     font-size: 0.9em;
+  }
+
+  .green {
+    color: $green;
+  }
+
+  .red {
+    color: $red;
+  }
+
+  .yellow {
+    color: $yellow;
   }
   

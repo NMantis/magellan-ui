@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+
 @Injectable({ providedIn: 'root' })
-export class SearchService {
+export class ReccomendationService {
   private baseUrl = environment.apiUrl
   constructor(private http: HttpClient) { }
 
-  advancedSearch(preferences: any) {
-    return this.http.post<any>(`${this.baseUrl}/api/search/advanced`, preferences )
+  user() {
+    return this.http.get<any>(`${this.baseUrl}/api/search/quick/user`)
   }
 
-  quickSearch() {
-    return this.http.post<any>(`${this.baseUrl}/api/search/quick`, {} )
+  search() {
+    return this.http.get<any>(`${this.baseUrl}/api/search/quick/search`)
   }
 }
