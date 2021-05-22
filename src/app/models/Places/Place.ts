@@ -3,17 +3,23 @@ import { Geometry } from "./Geometry";
 export class Place {
     id: string;
     placeId: string;
-    opening_hours: string;
+    opening_hours: any;
     name: string;
+    phone: string;
     rating: number = 0;
     types: string[] = [];
     price_level: number;
     user_ratings_total: number;
     vicinity: number;
+    correlation?: number;
     geometry: Geometry;
 
-    constructor(data?: Place) {
+    constructor(data?: Place, correlation?: number) {
         Object.assign(this, data);
+
+        if(correlation) {
+            this.correlation = Number((correlation * 100).toFixed(2));
+        }
     }
 
     hasFood?() {

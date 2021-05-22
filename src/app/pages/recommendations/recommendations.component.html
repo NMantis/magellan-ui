@@ -1,57 +1,62 @@
 <div class="wrapper">
 
-<div class="card" *ngFor="let recc of reccomendations">
+  <div class="card" *ngFor="let place of reccomendation?.places">
     <div class="additional">
+
       <div class="user-card">
         <div class="level center">
           Similarity Score
         </div>
+
         <div class="ratings">
-            <app-ratings [rating]='0' [placeId]='0' [name]="'x'"></app-ratings>
+          <app-ratings [rating]='0' [placeId]='place.placeId' [name]="place.name"></app-ratings>
         </div>
-    <span class="center corelation" [ngClass]="cent > 75 ? 'green' : cent > 40? 'yellow' : 'red'" [CountTo]="cent" [from]="zero" [duration]="duration"></span>
+
+        <span class="center corelation" [ngClass]="place.correlation > 75 ? 'green' : place.correlation > 40? 'yellow' : 'red'" [CountTo]="place.correlation"
+          [from]="zero" [duration]="duration"></span>
       </div>
+
       <div class="more-info">
-        <h1>{{ recc.place?.name | titlecase}} A Place</h1>
+        <h1>{{ place.name | titlecase}}</h1>
         <div class="coords">
 
           <div class="user-rating">
             <h4>User Rating</h4>
-            <h6>4.3</h6>
+            <h6> {{ place.rating }}</h6>
           </div>
 
           <div class="info">
             <mat-icon>phone</mat-icon>
             <h4>210-2155728</h4>
           </div>
-          
+
           <div class="info">
             <mat-icon>place</mat-icon>
-            <h4>Λεωφόρος Αλεξάνδρας 10, Αθήνα</h4>
+            <h4>{{ place.vicinity }}</h4>
           </div>
 
-          
+
         </div>
 
         <div class="stats">
-          <div *ngIf="!place?.hasFood()">
+          <div *ngIf="place.hasFood()">
             <!-- <div class="title">Awards</div> -->
             <div class="value">
-                <mat-icon title="Food">restaurant</mat-icon>
+              <mat-icon title="Food">restaurant</mat-icon>
             </div>
           </div>
-          <div *ngIf="!place?.hasDrinks()">
+          <div *ngIf="place.hasDrinks()">
             <!-- <div class="title">Matches</div> -->
-            
+
             <div class="value">
-                <mat-icon title="Bar">local_bar</mat-icon>
+              <mat-icon title="Bar">local_bar</mat-icon>
             </div>
           </div>
-          <div *ngIf="!place?.hasCoffee()">
+          <div *ngIf="place.hasCoffee()">
             <!-- <div class="title">Pals</div> -->
-            
+
             <div class="value">
-                <mat-icon title="Cafe">local_cafe</mat-icon>
+              <mat-icon title="Cafe">local_cafe</mat-icon>
             </div>
           </div>
 
@@ -59,8 +64,9 @@
       </div>
     </div>
     <div class="general">
-      <h1>{{ recc.place?.name | titlecase }} A Place</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.</p>
+      <h1>{{ place?.name | titlecase }} A Place</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam
+        vestibulum sodales odio ut pulvinar.</p>
       <span class="more">Mouse over the card for more info</span>
     </div>
   </div>

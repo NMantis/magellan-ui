@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Place } from 'src/app/models/Places/Place';
 
 @Component({
   selector: 'app-place-container',
@@ -6,26 +7,22 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./place-container.component.scss']
 })
 export class PlaceContainerComponent implements OnInit {
-  @Input() readonly: boolean;
-  @Input() place: any;
+  @Input() 
+  readonly: boolean;
+
+  @Input() 
+  place: Place;
+
   @Output() userRating = new EventEmitter<number>();
 
   constructor() { }
 
-  ngOnInit() { }
-
-  get hasFood() {
-    return this.place.types.includes('food')
-  }
-  get hasDrinks() {
-    return this.place.types.includes('bar')
-  }
-  get hasCoffee() {
-    return this.place.types.includes('cafe')
+  ngOnInit() { 
+    this.place = new Place(this.place);
   }
 
   ratingComponentClick(rating: number): void {
-    this.userRating.emit(rating)
+    this.userRating.emit(rating);
   }
 
 }

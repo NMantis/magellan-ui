@@ -27,15 +27,15 @@ export class HomeComponent implements OnInit {
   ) {
     this.matIconRegistry.addSvgIcon(
       `quickSearch`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/lighting.svg`)
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`assets/icons/lighting.svg`)
     );
     this.matIconRegistry.addSvgIcon(
       `user`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/user.svg`)
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`assets/icons/user.svg`)
     );
     this.matIconRegistry.addSvgIcon(
       `search`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/search.svg`)
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`assets/icons/search.svg`)
     );
   }
 

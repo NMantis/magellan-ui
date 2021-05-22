@@ -1,15 +1,15 @@
 <div class="wrapper" >
     <div class="top-row">
         <div class="icons-container">
-            <mat-icon *ngIf="hasFood" title="Restaurant">restaurant</mat-icon>
-            <mat-icon *ngIf="hasDrinks" title="Bar">local_bar</mat-icon>
-            <mat-icon *ngIf="hasCoffee" title="Cafe">local_cafe</mat-icon>
+            <mat-icon *ngIf="place.hasFood" title="Restaurant">restaurant</mat-icon>
+            <mat-icon *ngIf="place.hasDrinks" title="Bar">local_bar</mat-icon>
+            <mat-icon *ngIf="place.hasCoffee" title="Cafe">local_cafe</mat-icon>
         </div>
         <h3>{{place.name | titlecase}}</h3>
 
         <div>
-            <h4 class="green" *ngIf="place.match"
-            [ngClass]="place.match > 80? 'green' : match > 40? 'yellow' : 'red'">Match: 93%</h4> <!-- -->
+            <!-- <h4 class="green" *ngIf="place.match"
+            [ngClass]="place.match > 80? 'green' : match > 40? 'yellow' : 'red'">Match: 93%</h4>  -->
         </div>
     </div>
 
@@ -23,10 +23,10 @@
             <span style="margin-right:20px">{{place.phone || 'Not Available'}}</span>
 
             <ng-template [ngIf]="place.opening_hours?.open_now " [ngIfElse]="closed">
-                <span class="is-open open"> Ανοιχτό </span>
+                <span class="is-open open"> Open </span>
             </ng-template>
             <ng-template #closed>
-                <span class="is-open closed"> Κλειστό </span>
+                <span class="is-open closed"> Closed </span>
             </ng-template>
         </div>
 

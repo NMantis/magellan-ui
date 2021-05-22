@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  
-  helper = new JwtHelperService(); 
+export class AppComponent implements OnInit {
+
+  helper = new JwtHelperService();
 
   constructor(
     private authService: AuthService,
@@ -21,16 +21,16 @@ export class AppComponent implements OnInit{
     if (localStorage.getItem('access_token')) {
       if (this.helper.isTokenExpired(localStorage.getItem('access_token'))) {
         //token is expired if it returns True
-        this.authService.setLoggedIn = false
-        localStorage.removeItem('access_token')
-        this.router.navigateByUrl('/login')
+        this.authService.setLoggedIn = false;
+        localStorage.removeItem('access_token');
+        this.router.navigateByUrl('/login');
       } else {
         //token is not expired if it returns false
-        this.authService.setLoggedIn = true
+        this.authService.setLoggedIn = true;
       }
     } else {
-      this.authService.setLoggedIn = false
-      this.router.navigateByUrl('/login')
+      this.authService.setLoggedIn = false;
+      this.router.navigateByUrl('/login');
     }
   }
 }
