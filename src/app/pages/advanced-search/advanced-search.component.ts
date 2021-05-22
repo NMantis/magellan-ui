@@ -9,8 +9,12 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./advanced-search.component.scss']
 })
 export class AdvancedSearchComponent implements OnInit, AfterViewInit {
-  @ViewChild('mapContainer') gmap: ElementRef;
-  @ViewChild('addresstext') addresstext: any;
+  @ViewChild('mapContainer') 
+  gmap: ElementRef;
+
+  @ViewChild('addresstext') 
+  addresstext: any;
+
   autocompleteInput: string;
   kmArray: Array<number> = []
   map: google.maps.Map;
@@ -25,7 +29,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   };
   marker = new google.maps.Marker({
     position: this.coordinates,
-      // @ts-ignore
+    // @ts-ignore
     map: this.map,
   });
   radius: number;
@@ -41,8 +45,8 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
     private router: Router
   ) { }
 
-  ngOnInit() { 
-    for (let i = 1; i <= 14; this.kmArray.push(i++)) { } 
+  ngOnInit() {
+    for (let i = 1; i <= 14; this.kmArray.push(i++)) { }
   }
 
   ngAfterViewInit() {
@@ -67,7 +71,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
       this.mapInitializer()
     });
   }
-  
+
   mapInitializer() {
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
     this.marker.setMap(this.map);
@@ -75,10 +79,12 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
 
   drawCircle(distance: number) {
     this.chosenRadius.setMap(null)
+
     this.map.setZoom(
       distance > 10 ? 11 :
         distance > 4 ? 12 : 14
     )
+
     const circle = {
       strokeColor: "#49ccff;",
       strokeOpacity: 0.2,
@@ -89,6 +95,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
       center: this.coordinates,
       radius: distance * 1000
     };
+
     this.chosenRadius = new google.maps.Circle(circle)
     this.chosenRadius.bindTo('center', this.marker, 'position');
   }
@@ -108,14 +115,16 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
           lng: this.lng
         }
       }
+
       this.searchService.advancedSearch(preferences || {})
         .pipe(finalize(() => this.loading = false))
-        .subscribe(resp => {
-          //this.router.navigateByUrl(`recommendations/${resp.id}`)
-        })
-    }, 4000)
+        .subscribe(resp => this.router.navigateByUrl(`/recommendations/${resp.id}`))
+    }, 2000)
+
   }
 
-  goBack() { this.location.back(); }
+  goBack() { 
+    this.location.back();
+  }
 
 }

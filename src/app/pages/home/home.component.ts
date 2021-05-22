@@ -17,7 +17,7 @@ import { SheetComponent } from 'src/app/shared/sheet/sheet.component';
 export class HomeComponent implements OnInit {
   show: boolean;
   loading: boolean;
-  
+
   constructor(
     public searchService: SearchService,
     private matIconRegistry: MatIconRegistry,
@@ -39,19 +39,18 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     setTimeout(() => this.show = true, 1400);
   }
 
   quickSearch() {
-    this.loading = true
+    this.loading = true;
+
     setTimeout(() => {
       this.searchService.quickSearch()
         .pipe(finalize(() => this.loading = false))
-        .subscribe(resp => {
-          //this.router.navigateByUrl(`recommendations/${resp.id}`)
-        })
-    }, 4000)
+        .subscribe(resp => this.router.navigateByUrl(`/recommendations/${resp.id}`))
+    }, 2000)
   }
 
   openBottomSheet(): void {
