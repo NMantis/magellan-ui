@@ -12,7 +12,6 @@ export class Reccomendation {
 
 export interface ReccomendationDTO {
     id: string;
-    places: Place[];
     quickSearchResponse: {
         result: [{
             correlation: number;
