@@ -23,7 +23,7 @@ export class PlaceService {
     const respString = JSON.stringify(reccomendation);
     const resp = new Reccomendation(JSON.parse(respString));
     
-    return of(resp) // this.http.get<Reccomendation[]>(`${this.baseUrl}/api/search/quick/search`, { params })
+    return this.http.get<Reccomendation>(`${this.baseUrl}/api/search/quick/search`, { params })
   }
 }
 
