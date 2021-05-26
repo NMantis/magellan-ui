@@ -10,7 +10,7 @@ export class Reccomendation {
     }
 }
 
-interface ReccomendationDTO {
+export interface ReccomendationDTO {
     id: string;
     places: Place[];
     quickSearchResponse: {

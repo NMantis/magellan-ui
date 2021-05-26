@@ -4,7 +4,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Place } from 'src/app/models/Places/Place';
 import { Filters } from 'src/app/models/Filters';
-import { Reccomendation } from 'src/app/models/Search.ts/Reccomendation';
+import { Reccomendation, ReccomendationDTO } from 'src/app/models/Search.ts/Reccomendation';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,11 @@ export class PlaceService {
     const params = new HttpParams().set('searchId', id);
     const respString = JSON.stringify(reccomendation);
     const resp = new Reccomendation(JSON.parse(respString));
-    
-    return this.http.get<Reccomendation>(`${this.baseUrl}/api/search/quick/search`, { params })
+
+    return this.http.get<ReccomendationDTO>(`${this.baseUrl}/api/search/quick/search`, { params })
+      .pipe(map(resp => new Reccomendation(resp)))
   }
+
 }
 
 
