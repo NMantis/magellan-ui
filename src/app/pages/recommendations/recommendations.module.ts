@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
-import { PlaceContainerModule } from 'src/app/shared/place-container/place-container.module';
-import { RatingsModule } from 'src/app/shared/ratings/ratings.module';
 import { RecommendationsComponent } from './recommendations.component';
-import { CountToModule } from 'angular-count-to';
+import { RecommendationCardModule } from 'src/app/shared/recommendation-card/recommendation-card.module';
 
 const routes: Routes = [
     {path: '', component: RecommendationsComponent}
@@ -13,9 +11,7 @@ const routes: Routes = [
   declarations: [RecommendationsComponent],
   imports: [
     SharedModule,
-    RatingsModule,
-    CountToModule,
-    PlaceContainerModule,
+    RecommendationCardModule,
     RouterModule.forChild(routes)
   ],
     exports: [RecommendationsComponent]

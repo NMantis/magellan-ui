@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
-import { list, places } from 'src/app/animations';
 import { Recommendation } from 'src/app/models/Search.ts/Recommendation';
 import { Favorite } from 'src/app/models/Users/Favorite';
 import { PlaceService } from 'src/app/services/places/place.service';
@@ -10,15 +9,12 @@ import { UserService } from 'src/app/services/user/user.service';
 @Component({
   selector: 'app-recommendations',
   templateUrl: './recommendations.component.html',
-  styleUrls: ['./recommendations.component.scss'],
-  animations: [list, places]
+  styleUrls: ['./recommendations.component.scss']
 })
 export class RecommendationsComponent implements OnInit {
 
   reccomendation: Recommendation;
   favorites: Favorite[];
-  zero = 0;
-  duration = 1;
 
   constructor(
     private route: ActivatedRoute,
