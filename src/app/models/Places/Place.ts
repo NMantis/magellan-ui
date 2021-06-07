@@ -11,6 +11,7 @@ export class Place {
     price_level: number;
     user_ratings_total: number;
     vicinity: number;
+    place_id?: string;
     correlation?: number;
     geometry: Geometry;
 
@@ -23,14 +24,14 @@ export class Place {
     }
 
     hasFood?() {
-        return this.types.includes('food')
+        return this.types.includes('food');
     }
 
     hasDrinks?() {
-        return this.types.includes('bar')
+        return this.types.includes('bar');
     }
 
     hasCoffee?() {
-        return this.types.includes('cafe')
+        return this.types.includes('cafe');
     }
 }

@@ -9,7 +9,7 @@
         </div>
 
         <div class="ratings">
-          <app-ratings [rating]='0' [placeId]='place.placeId' [name]="place.name"></app-ratings>
+          <app-ratings [rating]="place.userRating" [placeId]="place.id" [name]="place.name"></app-ratings>
         </div>
 
         <span class="center corelation" [ngClass]="place.correlation > 75 ? 'green' : place.correlation > 40? 'yellow' : 'red'" [CountTo]="place.correlation"
@@ -17,7 +17,7 @@
       </div>
 
       <div class="more-info">
-        <h1>{{ place.name | titlecase}}</h1>
+        <h1>{{ place.name | titlecase }}</h1>
         <div class="coords">
 
           <div class="user-rating">
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="general">
-      <h1>{{ place?.name | titlecase }} A Place</h1>
+      <h1>{{ place?.name | titlecase }}</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam
         vestibulum sodales odio ut pulvinar.</p>
       <span class="more">Mouse over the card for more info</span>

@@ -100,7 +100,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   }
 
 
-  search() {
+  search(type?: "content" | "collaborative" ) {
     this.loading = true;
 
     setTimeout(() => {
@@ -115,7 +115,7 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
         }
       }
 
-      this.searchService.advancedSearch(preferences || {})
+      this.searchService.advancedSearch(preferences || {}, type)
         .pipe(finalize(() => this.loading = false))
         .subscribe(resp => this.router.navigateByUrl(`/recommendations/${resp.id}`))
     }, 2000)

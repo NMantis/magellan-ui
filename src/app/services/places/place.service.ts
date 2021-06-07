@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Place } from 'src/app/models/Places/Place';
 import { Filters } from 'src/app/models/Filters';
-import { Reccomendation, ReccomendationDTO } from 'src/app/models/Search.ts/Reccomendation';
+import { Recommendation, RecommendationDTO } from 'src/app/models/Search.ts/Recommendation';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -19,11 +19,11 @@ export class PlaceService {
     return this.http.get<Place[]>(`${this.baseUrl}/api/places/all`, { params });
   }
 
-  recommendations(id: string): Observable<Reccomendation> {
+  recommendations(id: string): Observable<Recommendation> {
     const params = new HttpParams().set('recId', id);
 
-    return this.http.get<ReccomendationDTO>(`${this.baseUrl}/api/search`, { params })
-      .pipe(map(resp => new Reccomendation(resp)))
+    return this.http.get<RecommendationDTO>(`${this.baseUrl}/api/search`, { params })
+      .pipe(map(resp => new Recommendation(resp)))
   }
 
 }

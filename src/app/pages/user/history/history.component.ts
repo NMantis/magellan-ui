@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HistoryService } from 'src/app/services/user/history.service';
+import { ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-history',
@@ -8,9 +9,12 @@ import { HistoryService } from 'src/app/services/user/history.service';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor(private historyService: HistoryService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data
+      .pipe(first())
+      .subscribe(console.log)
   }
 
 }
