@@ -1,27 +1,27 @@
 <div class="login">
     <div class="login-wrapper p0">
         <div class="login-form scroll">
-            <div class="logo">
+            <div class="logo mini">
                 <!-- logo from https://spark.adobe.com-->
                 <img src="../../assets/magellan-logos/magellan-logos_black.png">
             </div>
             <span class="title">User Registration</span>
             <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="small">
                     <mat-label>Email</mat-label>
                     <input matInput type="email" formControlName="email">
                     <mat-error *ngIf="userForm.controls['email'].hasError('required')">Email is <strong>required</strong>.</mat-error>
                     <mat-error *ngIf="userForm.controls['email'].hasError('email')">Not a valid e-mail address.</mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="small">
                     <mat-label>Username</mat-label>
                     <input matInput type="text" formControlName="username">
                     <mat-error *ngIf="userForm.controls['username'].hasError('required')">Username is <strong>required</strong>.</mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="small">
                     <mat-label>Password</mat-label>
                     <input matInput type="password" formControlName="password">
                     <mat-error *ngIf="userForm.controls['password'].hasError('required')">Password is <strong>required</strong>.</mat-error>
@@ -29,35 +29,35 @@
                     <mat-error *ngIf="userForm.controls['password'].hasError('minlength')">Password must have 6 or more characters.</mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="small">
                     <mat-label>Confirm Password</mat-label>
                     <input matInput type="password" formControlName="confirmPassword">
                     <mat-error *ngIf="userForm.controls['confirmPassword'].hasError('required')">Confirm Password is <strong>required</strong>.</mat-error>
                     <mat-error *ngIf="userForm.controls['confirmPassword'].hasError('mustMatch')">Passwords must match.</mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="small">
                     <mat-label>First Name</mat-label>
                     <input matInput formControlName="firstName">
                     <mat-error *ngIf="userForm.controls['firstName'].hasError('required')">First Name is <strong>required</strong>.</mat-error>
                     <mat-error *ngIf="userForm.controls['firstName'].hasError('pattern')">Invalid Pattern.</mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="small">
                     <mat-label>Last Name</mat-label>
                     <input matInput formControlName="lastName">
                     <mat-error *ngIf="userForm.controls['lastName'].hasError('required')">Last Name is <strong>required</strong>.</mat-error>
                     <mat-error *ngIf="userForm.controls['lastName'].hasError('pattern')">Invalid Pattern.</mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="date-input" appearance="outline"  (click)="dp.open()">
+                <mat-form-field class="date-input" appearance="outline"  (click)="dp.open()" class="small">
                     <mat-label>Date of Birth</mat-label>
                     <input matInput [matDatepicker]="dp" [max]="maxDate" formControlName="dob" readonly>
                     <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
                     <mat-datepicker #dp disabled="false" [startAt]="startDate"></mat-datepicker>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="small">
                     <mat-label>Gender</mat-label>
                     <mat-select formControlName="gender">
                         <mat-option [value]="'female'">Female</mat-option>
@@ -66,7 +66,7 @@
                     </mat-select>
                 </mat-form-field>
 
-                <button class="submit" mat-raised-button [disabled]="userForm.invalid">Register</button>
+                <button class="submit" mat-raised-button>Register</button>
 
                 <div class="actions">
                     <a routerLink="/login" style="margin: auto; padding: 16px;"> Back </a>

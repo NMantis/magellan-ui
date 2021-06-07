@@ -41,6 +41,10 @@
     }
 }
 
+.logo.mini {
+    width: 159px;
+}
+
 .title{
     font-size: 20px;
     margin: 16px 0 32px;
@@ -103,6 +107,9 @@ a{
     cursor: pointer;
 }
 
+.small {
+    font-size: 14px;
+}
 mat-form-field{ width:100% }
 // .spacing{ margin-top:100px }
 mat-checkbox{ margin:15px; }

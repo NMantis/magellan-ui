@@ -6,11 +6,11 @@ export class SearchService {
   private baseUrl = environment.apiUrl
   constructor(private http: HttpClient) { }
 
-  advancedSearch(preferences: any) {
+  advancedSearch(preferences: any, type?: "content" | "collaborative") {
     return this.http.post<any>(`${this.baseUrl}/api/search/advanced`, preferences )
   }
 
-  quickSearch() {
+  quickSearch(type?: "content" | "collaborative") {
     return this.http.post<any>(`${this.baseUrl}/api/search/quick`, {} )
   }
 }

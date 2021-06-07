@@ -16,7 +16,7 @@ export class HistoryService {
    * @returns User's latest 5 search results.
    */
   public show(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/api/search/quick/user`);
+    return this.http.get<any>(`${this.baseUrl}/api/search/history`);
   }
 
 }

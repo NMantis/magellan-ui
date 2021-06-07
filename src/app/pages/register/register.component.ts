@@ -53,6 +53,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.userForm.invalid) return;
+    
     let user = this.userForm.getRawValue();
 
     this.registerService.register(user)

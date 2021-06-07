@@ -36,7 +36,6 @@ export class AdvancedSearchComponent implements OnInit, AfterViewInit {
   rating: string;
   category: string;
   price: string;
-  plc: any;
   loading: boolean;
 
   constructor(
