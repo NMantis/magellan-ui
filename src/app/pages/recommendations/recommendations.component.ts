@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class RecommendationsComponent implements OnInit {
 
-  reccomendation: Recommendation;
+  recommendation: Recommendation;
   favorites: Favorite[];
 
   constructor(
@@ -25,14 +25,14 @@ export class RecommendationsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.pipe(
       switchMap(params => this.placeService.recommendations(params.get('id'))),
-      tap(recc => this.reccomendation = recc),
+      tap(recc => this.recommendation = recc),
       switchMap(() => this.userService.favorites(true))
     ).subscribe(resp => this.setRatings(resp));
   }
 
 
   setRatings(favorites: Favorite[]) {
-    this.reccomendation.places = this.reccomendation.places.map(place => {
+    this.recommendation.places = this.recommendation.places.map(place => {
       place['userRating'] = favorites.find(f => f.placeId == place.id)?.rating;
       return place;
     })
