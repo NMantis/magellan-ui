@@ -11,6 +11,6 @@ export class SearchService {
   }
 
   quickSearch(type?: "content" | "collaborative") {
-    return this.http.post<any>(`${this.baseUrl}/api/search/quick`, {} )
+    return this.http.post<any>(`${this.baseUrl}/api/search/quick`, {"type": "collaborative"}  )
   }
 }
