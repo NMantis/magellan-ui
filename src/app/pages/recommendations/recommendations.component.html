@@ -1,3 +1,3 @@
 <div class="wrapper" *ngIf="recommendation">
-  <recommendation-card *ngFor="let place of recommendation.places" [place]="place"></recommendation-card>
+  <recommendation-card *ngFor="let place of recommendation.places" [place]="place" [favorites]="favorites"></recommendation-card>
 </div>

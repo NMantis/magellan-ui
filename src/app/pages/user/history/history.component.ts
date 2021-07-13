@@ -34,6 +34,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
         }),
         switchMap(() => this.userService.favorites(true)),
         tap(favorites => this.favorites = favorites),
+        tap(() => this.setRatings(this.history[0])),
         switchMap(() => this.selectedRec.valueChanges),
         takeUntil(this.destroyed$)
       ).subscribe(selection => this.setRatings(selection));
@@ -44,7 +45,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
     recommendation.places = recommendation.places.map(place => {
       place['userRating'] = this.favorites.find(f => f.placeId == place.id)?.rating;
       return place;
-    })
+    });
 
     this.selectedRec.setValue(recommendation, { emitEvent: false });
   }
@@ -54,6 +55,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 }

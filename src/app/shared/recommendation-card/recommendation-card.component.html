@@ -7,7 +7,7 @@
         </div>
 
         <div class="ratings">
-          <app-ratings [rating]="place['userRating']" [placeId]="place.id" [name]="place.name"></app-ratings>
+          <app-ratings [rating]="place['userRating']" [placeId]="place.id" [name]="place.name" (ratingClick)="rate($event)"></app-ratings>
         </div>
 
         <span class="center corelation" [ngClass]="place.correlation > 75 ? 'green' : place.correlation > 40? 'yellow' : 'red'" [CountTo]="place.correlation"
