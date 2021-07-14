@@ -1,3 +1,7 @@
 <div class="wrapper" *ngIf="recommendation">
-  <recommendation-card *ngFor="let place of recommendation.places" [place]="place" [favorites]="favorites"></recommendation-card>
+
+  <ng-container *ngFor="let place of recommendation.places">
+    <recommendation-card [place]="place" [favorites]="favorites" *ngIf="place.correlation >= 0"></recommendation-card>
+  </ng-container>
+  
 </div>

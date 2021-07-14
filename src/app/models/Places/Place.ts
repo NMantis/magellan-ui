@@ -18,7 +18,7 @@ export class Place {
     constructor(data?: Place, correlation?: number) {
         Object.assign(this, data);
 
-        if(correlation) {
+        if(correlation && correlation >= 0) {
             this.correlation = Number((correlation * 100).toFixed(1));
         }
     }

@@ -7,7 +7,7 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   advancedSearch(preferences: any, type?: "content" | "collaborative") {
-    return this.http.post<any>(`${this.baseUrl}/api/search/advanced`, {...preferences, "type": "content"} )
+    return this.http.post<any>(`${this.baseUrl}/api/search/advanced`, {...preferences, type: type } )
   }
 
   quickSearch(type?: "content" | "collaborative") {
